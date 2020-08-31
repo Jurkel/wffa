@@ -1,0 +1,37 @@
+.bm-burger-button {
+  position: fixed;
+  width: 35px;
+  height: 28px;
+  right: 10px;
+  top: 10px;
+}
+
+.bm-burger-bars {
+  background: #FFD08A;
+  border-radius: 5px;
+}
+
+.bm-menu {
+  background: #cfcfcf;
+  padding: .3em .3em 0;
+  font-size: 1.15em;
+  width: 300px;
+}
+
+.bm-menu a {
+  color: #FFD08A;
+  text-decoration: none;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.logo-image {
+  max-width: 17%;
+  height: auto;
+  z-index: inherit;
+  margin: 10px;
+}
+
+.nav-bar {
+  height: 0;
+}
