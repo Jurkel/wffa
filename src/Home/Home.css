@@ -15,6 +15,12 @@
   margin-top: 55px;
 }
 
+.bosa {
+  position: inline;
+  width: 60%;
+  height: auto;
+}
+
 .hero-text {
   background-color: #333333;
   background-image: linear-gradient(135deg, #E5E5E5, rgba(255, 208, 138, 0.89));

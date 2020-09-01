@@ -1,0 +1,29 @@
+.about-banner {
+  position: absolute;
+  top: 65px;
+  width: 40%;
+  height: 55px;
+  background-color: #f5c173;
+}
+
+.about-banner > h2 {
+  background: transparent;
+  color: #F2F2F2;
+  font-family: 'Lato';
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-left: 35px;
+}
+
+.about-wrapper {
+  color: #F2F2F2;
+  border: 1px solid #f5c173;
+  width: 90%;
+  height: 550px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 15px 10px;
+}

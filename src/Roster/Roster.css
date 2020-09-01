@@ -1,4 +1,20 @@
-.roster-profile {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+.player-wrapper {
+  position: relative;
+  top: 50px;
+  text-align: center;
+}
+
+.player-image {
+  width: 90%;
+  height: auto;
+}
+
+.player-info {
+  display: relative;
+  border: 1px solid #FFD08A;
+  margin-top: 75px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  height: 420px;
 }

@@ -1,12 +1,14 @@
 import React from 'react'
 import zeke from '../images/Zeke.png'
+import bosa from '../images/Bosa.png'
 import './Home.css'
 
 function Home() {
   return (
     <div className='home'>
       <div className='hero-image'>
-        <img className='zeke' src={ zeke } alt='zeke elliot' />
+        <img className='bosa' src={bosa} alt='nick bosa' />
+        <img className='zeke' src={zeke} alt='zeke elliot' />
         <h1 className='home-text'>
           <span className='beige'>WORLD</span><br /> 
           <span className='hero-text'>FANTASY <br />FOOTBALL <br /></span>
