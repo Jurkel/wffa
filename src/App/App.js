@@ -6,6 +6,7 @@ import Home from '../Home/Home'
 import Podcast from '../Podcast/Podcast'
 import Roster from '../Roster/Roster'
 import About from '../About/About'
+import Profile from '../Profile/Profile'
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path='/about'>
             <About />
+          </Route>
+          <Route path='/profile'>
+            <Profile />
           </Route>
         </Switch>
       </main>
