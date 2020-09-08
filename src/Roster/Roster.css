@@ -1,3 +1,13 @@
+.roster-list {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  top: 150px;
+  height: 450px;
+  width: 90%;
+  border: 1px solid #FFD08A;
+}
+
 .player-wrapper {
   position: relative;
   top: 50px;

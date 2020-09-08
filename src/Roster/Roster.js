@@ -22,6 +22,7 @@ class Roster extends React.Component {
         this.setState({
           rosterInfo: data
         })
+        console.log(this.state.rosterInfo)
       })
       .catch(error => this.setState({ error }))
   }
@@ -30,7 +31,7 @@ class Roster extends React.Component {
       <div className='roster-list'>
         <ul>
           {roster.forEach((list, index) => 
-            <li>{list[index].name}</li>
+            <li>{list.Name}</li>
           )}
         </ul>
       </div>
