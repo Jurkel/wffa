@@ -4,7 +4,7 @@ import './Starters.css'
 function Starters() {
   return (
     <div>
-      <h2>Starters</h2>
+      <h2 className='player-title'>Starters</h2>
     </div>
   )
 }

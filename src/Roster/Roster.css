@@ -3,7 +3,7 @@
   margin-right: auto;
   margin-left: auto;
   top: 150px;
-  height: 450px;
+  height: 400px;
   width: 90%;
   border: 1px solid #FFD08A;
 }
@@ -26,5 +26,6 @@
   margin-right: auto;
   margin-left: auto;
   width: 80%;
-  height: 420px;
+  height: 300px;
+  margin-bottom: 20px;
 }

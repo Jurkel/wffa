@@ -13,6 +13,7 @@ class Profile extends React.Component {
       <div className='roster-profile'>
         <div className='player-wrapper'>
           <img className='player-image' src={player} alt='dynamic player name' />
+          <div className='player-name'>Richard Geer</div>
         </div>
         <div className='player-info'>
           <CarouselProvider

@@ -1,17 +1,20 @@
 import React from 'react'
-import config from '../config'
+import { API_ROSTER } from '../config'
 import roster from '../Managers'
 import './Roster.css'
 
 class Roster extends React.Component {
-  state = {
-    rosterInfo: [],
-    currentPlayer: '',
-    error: null
+  constructor(props) {
+    super(props);
+    this.state = {
+      rosterInfo: [],
+      currentPlayer: '',
+      error: null
+    }
   }
-
+  
   componentDidMount() {
-    fetch(config.API_ROSTER)
+    fetch({API_ROSTER})
       .then(res => {
         if (!res.ok) {
           throw new Error(res.status)
@@ -22,10 +25,11 @@ class Roster extends React.Component {
         this.setState({
           rosterInfo: data
         })
-        console.log(this.state.rosterInfo)
+        console.log({API_ROSTER})
       })
       .catch(error => this.setState({ error }))
   }
+
   render() {
     return (
       <div className='roster-list'>
