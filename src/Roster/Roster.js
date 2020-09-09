@@ -1,6 +1,5 @@
 import React from 'react'
-import { API_ROSTER } from '../config'
-import roster from '../Managers'
+import { Link } from 'react-router-dom'
 import './Roster.css'
 
 class Roster extends React.Component {
@@ -14,29 +13,32 @@ class Roster extends React.Component {
   }
   
   componentDidMount() {
-    fetch({API_ROSTER})
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(res.status)
-        }
-        return res.json()
-      })
+    fetch(`https://api.sleeper.app/v1/league/590186196781543424/users`)
+      .then(res => res.json())
       .then(data => {
         this.setState({
           rosterInfo: data
         })
-        console.log({API_ROSTER})
+        console.log(this.state.rosterInfo)
       })
       .catch(error => this.setState({ error }))
   }
 
   render() {
+
+    const managers = this.state.rosterInfo
     return (
       <div className='roster-list'>
+        <h2>Manager Roster</h2>
         <ul>
-          {roster.forEach((list, index) => 
-            <li>{list.Name}</li>
-          )}
+          {/* {managers.forEach((list, index) => 
+            <Link to={{
+              pathname: `/${list[index].display_name}`,
+              state: {
+                userId: `${list[index].user_id}`
+              }
+            }}>{list[index].display_name}</Link>
+          )} */}
         </ul>
       </div>
     )

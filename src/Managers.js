@@ -32,7 +32,7 @@ export default [
     Username: "dvpham86"
   },
   {
-    Name: "Amber Heard",
+    Name: "Amber Janicik",
     Username: "ajanichik"
   },
   {

@@ -31,6 +31,9 @@ function App() {
           <Route path='/profile'>
             <Profile />
           </Route>
+          <Route path='/:handle'>
+            <Profile />
+          </Route>
         </Switch>
       </main>
     </div>

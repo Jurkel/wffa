@@ -1,8 +1,8 @@
 .podcast-art {
   position: relative;
-  top: 95px;
+  top: 35px;
   text-align: center;
-  margin-bottom: 115px;
+  margin-bottom: 75px;
   margin-top: 95px;
 }
 
@@ -31,18 +31,40 @@
   margin-left: auto;
 }
 
-.multi-episodes {
-  width: 95%;
-}
-
-.buzzsprout-player {
-  width: 95%;
-}
-
 .color-block {
   position: absolute;
   background-color: #FFD08A;
   margin-top: 75px;
-  height: 125px;
+  height: 105px;
   width: 100%;
+}
+
+.social-icon {
+  width: 15%;
+  height: auto;
+  margin: 15px;
+}
+
+.social-icons {
+  text-align: center;
+}
+
+.buzzsprout_player {
+  width: 95%;
+
+}
+
+@media screen and (min-width: 767px) {
+  .podcast-image {
+    width: 55%;
+  }
+
+  .color-block {
+    margin-top: 125px;
+    height: 155px;
+  }
+
+  .social-icon {
+    width: 12%;
+  }
 }

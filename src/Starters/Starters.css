@@ -1,0 +1,21 @@
+.starter-list {
+  margin-left: 35px;
+}
+
+
+.starters-wrapper  h4 {
+  color: #FFD08A;
+  font-size: 16px;
+  font-family: 'Courier';
+}
+
+.starters-wrapper h3 {
+  color: #f2f2f2;
+  font-size: 16px;
+}
+
+.starter-flex {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: -25px;
+}

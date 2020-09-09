@@ -1,5 +1,7 @@
 import React from 'react'
 import podcast from '../images/podcast-art.png'
+import spotify from '../images/spotify.png'
+import apple from '../images/apple-podcast.png'
 import { Helmet } from 'react-helmet'
 import './Podcast.css'
 
@@ -17,6 +19,14 @@ class Podcast extends React.Component {
             <script src='https://www.buzzsprout.com/1276340.js?container_id=buzzsprout-large-player-1276340&player=large'></script>
           </Helmet>
           <div id='buzzsprout-large-player-1276340'></div>
+          <div className='social-icons'>
+            <a href='https://open.spotify.com/show/70iTFbizL1oC5lBe0Hd58J?si=bowHOc-YQ1-SWAoR_5Hj9w'>
+              <img className='social-icon' src={spotify} alt='spotify-icon' />
+            </a>
+            <a href='https://podcasts.apple.com/us/podcast/world-fantasy-football-alliance-wffa/id1529054571'>
+              <img className='social-icon' src={apple} alt='apple-icon' />
+            </a>
+          </div>
         </div>
       </div>
     )
@@ -24,3 +34,4 @@ class Podcast extends React.Component {
 }
 
 export default Podcast;
+
