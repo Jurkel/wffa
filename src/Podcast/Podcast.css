@@ -49,9 +49,9 @@
   text-align: center;
 }
 
-.buzzsprout_player {
+.episode_wave_player {
+  position: absolute;
   width: 95%;
-
 }
 
 @media screen and (min-width: 767px) {
@@ -66,5 +66,9 @@
 
   .social-icon {
     width: 12%;
+  }
+
+  .buzzsprout_player {
+    width: 80%;
   }
 }
