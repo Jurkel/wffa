@@ -3,7 +3,7 @@
   top: 35px;
   text-align: center;
   margin-bottom: 75px;
-  margin-top: 95px;
+  margin-top: 15px;
 }
 
 .podcast-image {
@@ -23,6 +23,7 @@
   letter-spacing: .05em;
   font-size: 45px;
   text-transform: uppercase;
+  margin-top: 75px;
 }
 
 .podcast-player {
@@ -65,7 +66,8 @@
   }
 
   .social-icon {
-    width: 12%;
+    width: 8%;
+    margin: 25px;
   }
 
   .buzzsprout_player {

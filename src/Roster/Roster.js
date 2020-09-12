@@ -26,20 +26,30 @@ class Roster extends React.Component {
 
   render() {
 
-    const managers = this.state.rosterInfo
+    const managers = this.state.rosterInfo.map(list => 
+    <li>
+      <Link 
+        style={{
+          paddingLeft: 13,
+          textDecoration: 'none',
+          color: '#F2F2F2'
+        }}
+        to={{
+          pathname: `/${list.display_name}`,
+          state: {
+            userId: `${list.user_id}`
+          }
+        }}>
+          {list.display_name}
+      </Link>
+    </li>);
+
     return (
       <div className='roster-list'>
         <h2>Manager Roster</h2>
-        <ul>
-          {/* {managers.forEach((list, index) => 
-            <Link to={{
-              pathname: `/${list[index].display_name}`,
-              state: {
-                userId: `${list[index].user_id}`
-              }
-            }}>{list[index].display_name}</Link>
-          )} */}
-        </ul>
+        <div className='manager-list'>
+          <ul>{managers}</ul>
+        </div>
       </div>
     )
   }

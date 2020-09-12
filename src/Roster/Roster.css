@@ -3,7 +3,7 @@
   margin-right: auto;
   margin-left: auto;
   top: 150px;
-  height: 400px;
+  height: 450px;
   width: 90%;
   border: 1px solid #FFD08A;
 }
@@ -28,4 +28,14 @@
   width: 80%;
   height: 300px;
   margin-bottom: 20px;
+}
+
+.manager-list ul {
+  list-style: none;
+  background: transparent;
+  margin-left: -20px;
+}
+
+.manager-list li {
+  margin-bottom: 7px;
 }

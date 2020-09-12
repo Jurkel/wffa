@@ -1,10 +1,6 @@
 import React from 'react'
 import './Starters.css'
 
-// componentDidMount() {
-//   fetch()
-// }
-
 function Starters() {
   return (
     <div className='starters-wrapper'>
