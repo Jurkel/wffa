@@ -1,6 +1,7 @@
 import React from 'react'
 import zeke from '../images/Zeke.png'
 import bosa from '../images/Bosa.png'
+import thomas from '../images/mike-thomas.png'
 import './Home.css'
 
 class Home extends React.Component {
@@ -15,20 +16,22 @@ class Home extends React.Component {
     }
   }
 
-  bestRecord() {
+  // bestRecord = () => {
+  //   let best = 0;
+  //   let info = this.state.scoreInfo;
+
+  //   info.forEach(score => {
+  //     if (best < score.settings.waiver_position) {
+  //       this.setState({ best: score.owner_id })
+  //     } 
+  //   })
+  // }
+
+  componentDidMount() {
+    
     let best = 0;
     let info = this.state.scoreInfo;
 
-    info.forEach(score => {
-      if (best < score.settings.waiver_position) {
-        this.setState({ best: score.owner_id })
-      } 
-      console.log(score.setting.waiver_position);
-    })
-    console.log(this.state.best)
-  }
-
-  componentDidMount() {
     fetch(`https://api.sleeper.app/v1/league/590186196781543424/rosters`)
       .then(res => res.json())
       .then(data => {
@@ -38,6 +41,12 @@ class Home extends React.Component {
         console.log(this.state.scoreInfo)
       })
       .catch(error => this.setState({ error }))
+
+    info.forEach(score => {
+      if (best < score.settings.wins) {
+        this.setState({ best: score.owner_id })
+      } 
+    })
   }
 
   render() {
@@ -46,12 +55,14 @@ class Home extends React.Component {
         <div className='hero-image'>
           <img className='bosa' src={bosa} alt='nick bosa' />
           <img className='zeke' src={zeke} alt='zeke elliot' />
+          <img className='thomas' src={thomas} alt='mike thomas' />
+        </div>
           <h1 className='home-text'>
             <span className='beige'>WORLD</span><br /> 
             <span className='hero-text'>FANTASY <br />FOOTBALL <br /></span>
             <span className='beige'>ALLIANCE</span>
           </h1>
-        </div>
+        
         <div className='leaderboard'>
           <h1>Leaderboard</h1>
           <h3>Most points:</h3>

@@ -28,6 +28,11 @@
   top: 24px;
 }
 
+.thomas {
+  visibility: hidden;
+  position: absolute;
+}
+
 .hero-text {
   background-color: #333333;
   background-image: linear-gradient(135deg, #E5E5E5, rgba(255, 208, 138, 0.89));
@@ -78,4 +83,46 @@
   color: #e5e5e5;
   font-size: 14px;
   background: transparent;
+}
+
+@media screen and (min-width: 767px) {
+  .leaderboard {
+    width: 35%;
+    height: 230px;
+    display: relative;
+    margin-left: 30px;
+    margin-top: -120px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    z-index: 2;
+  }
+
+  .leaderboard h1 {
+    margin-bottom: 25px;
+  }
+
+  .leaderboard > h3 {
+    font-size: 12px;
+  }
+
+  .zeke {
+    width: 55%;
+    margin-top: 225px;
+  }
+
+  .bosa {
+    width: 45%;
+    margin-top: 85px;
+  }
+
+  .thomas {
+    position: relative;
+    visibility: visible;
+    background: transparent;
+    bottom: -130px;
+    width: 50%;
+    height: auto;
+    z-index: 0;
+    margin-top: 15px;
+  }
 }
