@@ -2,6 +2,7 @@ import React from 'react'
 import zeke from '../images/Zeke.png'
 import bosa from '../images/Bosa.png'
 import thomas from '../images/mike-thomas.png'
+import radial from '../images/radial.png'
 import './Home.css'
 
 class Home extends React.Component {
@@ -28,7 +29,7 @@ class Home extends React.Component {
   // }
 
   componentDidMount() {
-    
+
     let best = 0;
     let info = this.state.scoreInfo;
 
@@ -53,15 +54,18 @@ class Home extends React.Component {
     return (
       <div className='home'>
         <div className='hero-image'>
+          <img className='radial' src={radial} alt='colored radial' />
           <img className='bosa' src={bosa} alt='nick bosa' />
           <img className='zeke' src={zeke} alt='zeke elliot' />
           <img className='thomas' src={thomas} alt='mike thomas' />
+          
         </div>
-          <h1 className='home-text'>
-            <span className='beige'>WORLD</span><br /> 
-            <span className='hero-text'>FANTASY <br />FOOTBALL <br /></span>
-            <span className='beige'>ALLIANCE</span>
-          </h1>
+
+        <h1 className='home-text'>
+          <span className='beige beige1'>WORLD</span><br /> 
+          <span className='hero-text hero-fantasy'>FANTASY</span> <br /><span className='hero-text'>FOOTBALL <br /></span>
+          <span className='beige beige2'>ALLIANCE</span>
+        </h1>
         
         <div className='leaderboard'>
           <h1>Leaderboard</h1>
