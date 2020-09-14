@@ -25,10 +25,9 @@
 
 .carousel__dot-group {
   background-color: transparent;
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  margin-top: 130px;
+  margin-left: 37%;
 }
 
 .carousel__dot {
@@ -49,4 +48,79 @@
 
 .player-info {
   height: 500px;
+}
+
+@media screen and (min-width: 374px) {
+  .carousel__dot-group {
+    margin-top: 90px;
+    margin-left: 39%;
+  }
+
+  .player-name {
+    margin-top: -7px;
+  }
+}
+
+@media screen and (min-width: 424px) {
+  .carousel__dot-group {
+    margin-top: 40px;
+    margin-left: 40%;
+  }
+
+  .player-name {
+    margin-top: -12px;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .roster-profile {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .player-info {
+    margin-right: 30px;
+  }
+
+  .player-image {
+    width: 100%;
+    height: auto;
+    margin-top: 45px;
+  }
+
+  .player-name {
+    margin-top: -16px;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .carousel__dot-group {
+    margin-top: -10px;
+  }
+
+  .player-info {
+    width: 55%;
+    height: 550px;
+    margin-top: 95px;
+  }
+
+  .player-image {
+    margin-top: 20px;
+  }
+
+  .player-name {
+    margin-top: -35px;
+  }
+}
+
+@media screen and (min-width: 1439px) {
+  .player-info {
+    width: 30%;
+    height: 650px;
+    margin-right: 120px;
+  }
+
+  .player-image {
+    width: 75%;
+  }
 }
