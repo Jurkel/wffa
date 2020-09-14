@@ -8,6 +8,16 @@
   border: 1px solid #FFD08A;
 }
 
+.roster-list h2 {
+  font-family: 'Lato';
+  font-size: 28px;
+  text-transform: uppercase;
+  color: #333333;
+  text-align: center;
+  background-color: #FFD08A;
+  padding: 10px;
+}
+
 .player-wrapper {
   position: relative;
   top: 50px;

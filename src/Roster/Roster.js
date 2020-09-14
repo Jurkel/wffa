@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+// import Profile from '../Profile/Profile'
 import './Roster.css'
 
 class Roster extends React.Component {
@@ -32,7 +33,8 @@ class Roster extends React.Component {
         style={{
           paddingLeft: 13,
           textDecoration: 'none',
-          color: '#F2F2F2'
+          color: '#F2F2F2',
+          fontWeight: 'bold'
         }}
         to={{
           pathname: `/${list.display_name}`,

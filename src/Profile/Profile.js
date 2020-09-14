@@ -8,12 +8,25 @@ import 'pure-react-carousel/dist/react-carousel.es.css'
 import './Profile.css'
 
 class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: ''
+    }
+  }
+
+  // componentDidMount() {
+  //   const { userId } = this.props.location.state
+
+  //   this.setState({ user: userId })
+  // }
+
   render() {
     return (
       <div className='roster-profile'>
         <div className='player-wrapper'>
           <img className='player-image' src={player} alt='dynamic player name' />
-          <div className='player-name'>Richard Geer</div>
+          <div className='player-name'></div>
         </div>
         <div className='player-info'>
           <CarouselProvider

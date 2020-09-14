@@ -123,4 +123,13 @@
   .player-image {
     width: 75%;
   }
+
+  .carousel__dot-group {
+    margin-top: 50px;
+    margin-left: 42%;
+  }
+
+  .player-name {
+    width: 55%;
+  }
 }
