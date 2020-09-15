@@ -45,7 +45,7 @@ class Home extends React.Component {
 
     info.forEach(score => {
       if (best < score.settings.wins) {
-        this.setState({ best: score.owner_id })
+        return this.setState({ best: score.owner_id })
       } 
     })
   }

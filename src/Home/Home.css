@@ -94,18 +94,36 @@
   margin-right: auto;
   margin-left: auto;
   border-radius: 10px;
+  padding-left: 15px;
 }
 
 .leaderboard > h1 {
-  background: transparent;
-  color: rgba(255, 208, 138, 0.89);
-  font-size: 18px;
+  background-color: transparent;
+  color: #FFD08A;
+  font-size: 20px;
+  letter-spacing: .07em;
 }
 
 .leaderboard > h3 {
   color: #e5e5e5;
   font-size: 14px;
   background: transparent;
+}
+
+@media screen and (min-width: 374px) {
+  .radial {
+    top: 25px;
+  }
+}
+
+@media screen and (min-width: 424px) {
+  .radial {
+    top: 8px;
+  }
+
+  .leaderboard {
+    margin-top: 20px;
+  }
 }
 
 @media screen and (min-width: 767px) {
@@ -147,5 +165,10 @@
     height: auto;
     z-index: 0;
     margin-top: 15px;
+  }
+
+  .radial {
+    top: 95px;
+    width: 65%;
   }
 }

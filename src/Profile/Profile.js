@@ -15,12 +15,6 @@ class Profile extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   const { userId } = this.props.location.state
-
-  //   this.setState({ user: userId })
-  // }
-
   render() {
     return (
       <div className='roster-profile'>
