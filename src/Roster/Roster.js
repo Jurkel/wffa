@@ -1,19 +1,20 @@
 import React from 'react'
-import StatsContext from '../StatsContext'
+// import StatsContext from '../StatsContext'
 import { Link } from 'react-router-dom'
 import './Roster.css'
 
 class Roster extends React.Component {
-  static contextType = StatsContext;
+  // static contextType = StatsContext;
 
   state = {
     rosterInfo: [],
     currentPlayer: '',
-    error: null
+    error: null,
   }
   
-  setCurrentPlayer = (id) => {
-    this.setState({ currentPlayer: id})
+  clickMe = (id) => {
+    console.log('this is being used: ' + id)
+    this.props.clickMe(id);
   }
 
   componentDidMount() {
@@ -42,10 +43,15 @@ class Roster extends React.Component {
         to={{
           pathname: `/${list.display_name}`
         }}
-        onClick={this.setCurrentPlayer(list.user_id)}>
-          {list.display_name}
+        
+        onClick={() => {console.log('from roster:' + list.user_id);this.clickMe(list.user_id)}}
+        
+      >
+          {list.display_name} - {list.user_id}
+          
       </Link>
     </li>);
+    
 
     return (
       

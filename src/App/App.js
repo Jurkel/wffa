@@ -6,17 +6,28 @@ import Podcast from '../Podcast/Podcast'
 import Roster from '../Roster/Roster'
 import About from '../About/About'
 import Profile from '../Profile/Profile'
-import StatsContext from '../StatsContext'
+// import StatsContext from '../StatsContext'
 import './App.css';
 
 class App extends Component {
-  state = {
-    user: ''
-  }
-  render() {
-    const contextValue = {
-      user: this.state.user
+  constructor() {
+    super();
+    this.state = {
+      user: 0
     }
+  }
+  
+
+  changeUser = (id) => {
+    console.log('I have been used: ' + id);
+    this.setState({ user: id })
+    console.log('user: ' + this.state.user)
+  }
+
+  render() {
+    // const contextValue = {
+    //   user: this.state.user
+    // }
   
     return (
       <div className="App">
@@ -24,13 +35,13 @@ class App extends Component {
           <Nav />
         </header>
         <main>
-          <StatsContext.Provider value={contextValue}>
+          {/* <StatsContext.Provider value={contextValue}> */}
             <Switch>
               <Route exact path='/'>
                 <Home />
               </Route>
               <Route path='/roster'>
-                <Roster />
+                <Roster clickMe={this.changeUser} />
               </Route>
               <Route path='/podcast'>
                 <Podcast />
@@ -39,13 +50,13 @@ class App extends Component {
                 <About />
               </Route>
               <Route path='/profile'>
-                <Profile />
+                <Profile userId={this.state.user} />
               </Route>
               <Route path='/:handle'>
                 <Profile />
               </Route>
             </Switch>
-          </StatsContext.Provider>
+          {/* </StatsContext.Provider> */}
         </main>
       </div>
     );
