@@ -11,11 +11,6 @@ class Roster extends React.Component {
     currentPlayer: '',
     error: null,
   }
-  
-  clickMe = (id) => {
-    console.log('this is being used: ' + id)
-    this.props.clickMe(id);
-  }
 
   componentDidMount() {
     fetch(`https://api.sleeper.app/v1/league/590186196781543424/users`)
@@ -44,7 +39,7 @@ class Roster extends React.Component {
           pathname: `/${list.display_name}`
         }}
         
-        onClick={() => {console.log('from roster:' + list.user_id);this.clickMe(list.user_id)}}
+        onClick={() => {this.props.clickMe(list.user_id)}}
         
       >
           {list.display_name} - {list.user_id}

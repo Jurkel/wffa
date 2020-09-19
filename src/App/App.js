@@ -10,24 +10,15 @@ import Profile from '../Profile/Profile'
 import './App.css';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      user: 0
+    state = {
+      user: ''
     }
-  }
-  
 
   changeUser = (id) => {
-    console.log('I have been used: ' + id);
     this.setState({ user: id })
-    console.log('user: ' + this.state.user)
   }
 
   render() {
-    // const contextValue = {
-    //   user: this.state.user
-    // }
   
     return (
       <div className="App">
@@ -49,11 +40,8 @@ class App extends Component {
               <Route path='/about'>
                 <About />
               </Route>
-              <Route path='/profile'>
-                <Profile userId={this.state.user} />
-              </Route>
               <Route path='/:handle'>
-                <Profile />
+                <Profile userId={this.state.user} />
               </Route>
             </Switch>
           {/* </StatsContext.Provider> */}

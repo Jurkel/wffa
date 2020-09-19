@@ -6,16 +6,14 @@ import radial from '../images/radial.png'
 import './Home.css'
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       best: '',
       worst: '',
       most: '',
       least: '',
       scoreInfo: []
     }
-  }
+  
 
   // bestRecord = () => {
   //   let best = 0;

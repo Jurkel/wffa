@@ -12,7 +12,6 @@ class Profile extends React.Component {
     user: ''
   }
   
-
   render() {
     return (
       <div className='roster-profile'>
