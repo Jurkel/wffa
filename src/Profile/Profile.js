@@ -9,15 +9,31 @@ import './Profile.css'
 
 class Profile extends React.Component {
   state = {
-    user: ''
+    userStats: {},
+    userBio: {}
+  }
+
+  retreiveName = (id) => {
+    let data = this.props.managerData;
+
+    data.forEach(name => {
+      if (id === name.owner_id) {
+        return ( name.display_name ) 
+      }
+      console.log('ID >> ' + id)
+      console.log('Profile Data >> ' + data)
+    })
   }
   
   render() {
+
+    let userId = this.props.userId;
+
     return (
       <div className='roster-profile'>
         <div className='player-wrapper'>
           <img className='player-image' src={player} alt='dynamic player name' />
-    <div className='player-name'>{this.props.userId}</div>
+    <div className='player-name'>{userId}</div>
         </div>
         <div className='player-info'>
           <CarouselProvider
@@ -27,13 +43,13 @@ class Profile extends React.Component {
           >
             <Slider>
               <Slide index={0}>
-                <Bio />
+                <Bio managerData={this.props.managerData} />
               </Slide>
               <Slide index={1}>
-                <Stats />
+                <Stats rosterData={this.props.rosterData} />
               </Slide>
               <Slide index={2}>
-                <Starters />
+                <Starters rosterData={this.props.rosterData}/>
               </Slide>
             </Slider>
             <DotGroup />

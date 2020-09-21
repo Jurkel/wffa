@@ -13,39 +13,41 @@ class Home extends React.Component {
       least: '',
       scoreInfo: []
     }
-  
-
-  // bestRecord = () => {
-  //   let best = 0;
-  //   let info = this.state.scoreInfo;
-
-  //   info.forEach(score => {
-  //     if (best < score.settings.waiver_position) {
-  //       this.setState({ best: score.owner_id })
-  //     } 
-  //   })
-  // }
 
   componentDidMount() {
 
     let best = 0;
-    let info = this.state.scoreInfo;
-
-    fetch(`https://api.sleeper.app/v1/league/590186196781543424/rosters`)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          scoreInfo: data
-        })
-        console.log(this.state.scoreInfo)
-      })
-      .catch(error => this.setState({ error }))
+    let worst = 0;
+    let most = 0;
+    let least = 0;
+    let info = this.props.rosterData;
 
     info.forEach(score => {
       if (best < score.settings.wins) {
         return this.setState({ best: score.owner_id })
       } 
     })
+
+    info.forEach(score => {
+      if (worst < score.settings.losses) {
+        return this.setState({ worst: score.owner_id })
+      } 
+    })
+
+    info.forEach(score => {
+      if (most < score.settings.fpts) {
+        return this.setState({ most: score.owner_id })
+      } 
+    })
+
+    info.forEach(score => {
+      if (least < score.settings.fpts) {
+        return this.setState({ least: score.owner_id })
+      } 
+    })
+
+
+    
   }
 
   render() {
@@ -70,7 +72,7 @@ class Home extends React.Component {
           <h3>Most points:</h3>
           <h3>Least points:</h3>
           <h3>Best record:</h3><h3>{this.state.best}</h3>
-          <h3>Worst record:</h3>
+          <h3>Worst record:</h3><h3>{this.state.worst}</h3>
         </div>
       </div>
     )

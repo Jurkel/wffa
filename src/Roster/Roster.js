@@ -1,10 +1,8 @@
 import React from 'react'
-// import StatsContext from '../StatsContext'
 import { Link } from 'react-router-dom'
 import './Roster.css'
 
 class Roster extends React.Component {
-  // static contextType = StatsContext;
 
   state = {
     rosterInfo: [],
@@ -12,21 +10,9 @@ class Roster extends React.Component {
     error: null,
   }
 
-  componentDidMount() {
-    fetch(`https://api.sleeper.app/v1/league/590186196781543424/users`)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          rosterInfo: data
-        })
-        console.log(this.state.rosterInfo)
-      })
-      .catch(error => this.setState({ error }))
-  }
-
   render() {
 
-    const managers = this.state.rosterInfo.map((list, index) => 
+    const managers = this.props.managerData.map((list, index) => 
     <li key={index}>
       <Link 
         style={{
@@ -39,11 +25,10 @@ class Roster extends React.Component {
           pathname: `/${list.display_name}`
         }}
         
-        onClick={() => {this.props.clickMe(list.user_id)}}
+        onClick={() => {this.props.clickMe(list.owner_id)}}
         
       >
-          {list.display_name} - {list.user_id}
-          
+          {list.display_name} 
       </Link>
     </li>);
     

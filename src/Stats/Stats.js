@@ -1,7 +1,7 @@
 import React from 'react'
 import './Stats.css'
 
-function Stats() {
+function Stats(props) {
   return (
     <div className='stats-wrapper'>
       <h2 className='player-title'>Stats</h2>
