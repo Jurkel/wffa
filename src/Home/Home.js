@@ -20,10 +20,21 @@ class Home extends React.Component {
     let worst = 0;
     let most = 0;
     let least = 0;
-    let info = this.props.rosterData;
+    let info = this.state.scoreInfo;
+
+    fetch(`https://api.sleeper.app/v1/league/590186196781543424/rosters`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          scoreInfo: data
+        })
+        console.log(this.state.scoreInfo)
+      })
+      .catch(error => this.setState({ error }))
+      
 
     info.forEach(score => {
-      if (best < score.settings.wins) {
+      if (best === score.settings.wins) {
         return this.setState({ best: score.owner_id })
       } 
     })
@@ -45,9 +56,6 @@ class Home extends React.Component {
         return this.setState({ least: score.owner_id })
       } 
     })
-
-
-    
   }
 
   render() {

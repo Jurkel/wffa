@@ -24,9 +24,7 @@ class Roster extends React.Component {
         to={{
           pathname: `/${list.display_name}`
         }}
-        
-        onClick={() => {this.props.clickMe(list.owner_id)}}
-        
+        onClick={() => {this.props.clickMe(list.owner_id)}} 
       >
           {list.display_name} 
       </Link>

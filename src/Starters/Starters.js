@@ -8,7 +8,7 @@ function Starters(props) {
       <h2 className='player-title'>Starters</h2>
       <div className='starter-list'>
         <div className='starter-flex'>
-          <h4>QB: </h4><h3>{props.rosterData.starters}</h3>
+          <h4>QB: </h4><h3>Starter 1</h3>
         </div>
         <div className='starter-flex'>
           <h4>RB: </h4><h3>Starter 2</h3>

@@ -12,11 +12,22 @@ class App extends Component {
     state = {
       user: '',
       rosterData: [],
-      managerData: []
+      managerData: [],
+      currentUser: {}
     }
 
+  // componentDidUpdate() {
+  //   let rosterInfo = this.state.rosterData;
+
+  //   rosterInfo.map(userId => {
+  //     return (this.state.user === userId.owner_id ? this.setState({ currentUser }) : '');
+  //   })
+  // }
+
   changeUser = (id) => {
-    this.setState({ user: id })
+    this.setState({ user: id }, () => {
+      console.log('changeUser callback: ' + this.state.user)
+    })
   }
 
   componentDidMount() {
@@ -26,7 +37,6 @@ class App extends Component {
         this.setState({
           rosterData: data
         })
-        console.log(this.state.rosterData)
       })
       .catch(error => this.setState({ error }))
 
@@ -36,7 +46,6 @@ class App extends Component {
         this.setState({
           managerData: data
         })
-        console.log(this.state.managerData)
       })
       .catch(error => this.setState({ error }))
   }
@@ -68,11 +77,10 @@ class App extends Component {
               <Route path='/about'>
                 <About />
               </Route>
-              
+
               <Route path='/:handle'>
                 <Profile 
                   userId={this.state.user}
-                  rosterData={this.state.rosterData}
                   managerData={this.state.managerData} />
               </Route>
             </Switch>

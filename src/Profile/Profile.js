@@ -24,10 +24,17 @@ class Profile extends React.Component {
       console.log('Profile Data >> ' + data)
     })
   }
+
+  findRosterUser = (id) => {
+    return this.props.managerData.find(roster => {
+        return roster.owner_id === id;
+    })
+  }
   
   render() {
-
     let userId = this.props.userId;
+    let userObj = this.findRosterUser(userId);
+    console.log('Profile current user: ' + JSON.stringify(userObj));
 
     return (
       <div className='roster-profile'>
