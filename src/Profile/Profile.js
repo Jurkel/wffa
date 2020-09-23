@@ -3,54 +3,23 @@ import player from '../images/player.png'
 import Bio from '../Bio/Bio'
 import Stats from '../Stats/Stats'
 import Starters from '../Starters/Starters'
+import { withRouter } from 'react-router-dom'
 import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
 import './Profile.css'
 
 class Profile extends React.Component {
-  state = {
-    rosterStats: {},
-    managerBio: {}
-  }
-
-  findManagerId = (id) => {
-    return this.props.managerData.find(roster => {
-        return roster.owner_id === id;
-    })
-  }
-
-  findRosterStats = (id) => {
-    return this.props.rosterData.find(roster => {
-        return roster.owner_id === id;
-    })
-  }
-
-  componentDidMount() {
-    let userId = this.props.userId;
-    let userObj = this.findManagerId(userId);
-    let rosterObj = this.findRosterStats(userId);
-
-    this.setState({ 
-      managerBio: userObj, 
-      rosterStats: rosterObj
-    }, () => {
-      console.log('Roster => ' + JSON.stringify(this.state.rosterStats));
-      console.log('Manager Stats => ' + JSON.stringify(this.state.managerBio));
-    })
-
-    
-  }
 
   render() {
-
-    let rosterStats = this.state.rosterStats;
-    let managerBio = this.state.managerBio;
+    console.log('from profile - managerbio: ' + JSON.stringify(this.props.location.state.managerBio));
+    console.log('from profile - rosterStats: ' + JSON.stringify(this.props.location.state.rosterStats));
+    console.log('from profile - starters: ' + JSON.stringify(this.props.location.state.starters));
 
     return (
       <div className='roster-profile'>
         <div className='player-wrapper'>
           <img className='player-image' src={player} alt='dynamic player name' />
-          <div className='player-name'>{managerBio.firstname} {managerBio.lastname}</div>
+          <div className='player-name'>{this.props.location.state.managerBio.firstname} {this.props.location.state.managerBio.lastname}</div>
         </div>
         <div className='player-info'>
           <CarouselProvider
@@ -60,13 +29,13 @@ class Profile extends React.Component {
           >
             <Slider>
               <Slide index={0}>
-                <Bio managerData={managerBio} />
+                <Bio managerData={this.props.location.state.managerBio} />
               </Slide>
               <Slide index={1}>
-                <Stats rosterData={rosterStats} />
+                <Stats rosterData={this.props.location.state.rosterStats} />
               </Slide>
               <Slide index={2}>
-                <Starters rosterData={rosterStats} />
+                <Starters starters={this.props.location.state.starters} />
               </Slide>
             </Slider>
             <DotGroup />
@@ -77,4 +46,4 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile;
+export default withRouter(Profile);

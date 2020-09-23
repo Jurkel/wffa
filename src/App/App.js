@@ -71,7 +71,8 @@ class App extends Component {
               <Route path='/roster'>
                 <Roster 
                   clickMe={this.changeUser}
-                  managerData={this.state.managerData} />
+                  managerData={this.state.managerData}
+                  rosterData={this.state.rosterData} />
               </Route>
 
               <Route path='/podcast'>

@@ -5,9 +5,19 @@ import './Roster.css'
 class Roster extends React.Component {
 
   state = {
-    rosterInfo: [],
-    currentPlayer: '',
-    error: null,
+    rosterInfo: []
+  }
+
+  findManagerId = (id) => {
+    return this.props.managerData.find(roster => {
+        return roster.owner_id === id;
+    })
+  }
+  
+  findRosterStats = (id) => {
+    return this.props.rosterData.find(roster => {
+        return roster.owner_id === id;
+    })
   }
 
   render() {
@@ -22,9 +32,15 @@ class Roster extends React.Component {
           fontWeight: 'bold'
         }}
         to={{
-          pathname: `/${list.display_name}`
+          pathname: `/${list.display_name}`,
+          state: {
+            managerBio: this.findManagerId(list.owner_id),
+            rosterStats: this.findRosterStats(list.owner_id),
+            starters: this.findRosterStats(list.owner_id).starters
+          }
         }}
-        onClick={() => {this.props.clickMe(list.owner_id)}} 
+        onClick={() => {this.props.clickMe(list.owner_id)}}
+        
       >
           {list.display_name} 
       </Link>
