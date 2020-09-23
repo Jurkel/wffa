@@ -36,6 +36,8 @@ class App extends Component {
       .then(data => {
         this.setState({
           rosterData: data
+        }, () => {
+          console.log('callback from App getting rosters: ' + this.state.rosterData)
         })
       })
       .catch(error => this.setState({ error }))
@@ -45,6 +47,8 @@ class App extends Component {
       .then(data => {
         this.setState({
           managerData: data
+        }, () => {
+          console.log('callback from App getting manager: ' + this.state.managerData)
         })
       })
       .catch(error => this.setState({ error }))
@@ -81,7 +85,8 @@ class App extends Component {
               <Route path='/:handle'>
                 <Profile 
                   userId={this.state.user}
-                  managerData={this.state.managerData} />
+                  managerData={this.state.managerData}
+                  rosterData={this.state.rosterData} />
               </Route>
             </Switch>
         </main>

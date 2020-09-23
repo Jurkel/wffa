@@ -9,38 +9,48 @@ import './Profile.css'
 
 class Profile extends React.Component {
   state = {
-    userStats: {},
-    userBio: {}
+    rosterStats: {},
+    managerBio: {}
   }
 
-  retreiveName = (id) => {
-    let data = this.props.managerData;
-
-    data.forEach(name => {
-      if (id === name.owner_id) {
-        return ( name.display_name ) 
-      }
-      console.log('ID >> ' + id)
-      console.log('Profile Data >> ' + data)
-    })
-  }
-
-  findRosterUser = (id) => {
+  findManagerId = (id) => {
     return this.props.managerData.find(roster => {
         return roster.owner_id === id;
     })
   }
-  
-  render() {
+
+  findRosterStats = (id) => {
+    return this.props.rosterData.find(roster => {
+        return roster.owner_id === id;
+    })
+  }
+
+  componentDidMount() {
     let userId = this.props.userId;
-    let userObj = this.findRosterUser(userId);
-    console.log('Profile current user: ' + JSON.stringify(userObj));
+    let userObj = this.findManagerId(userId);
+    let rosterObj = this.findRosterStats(userId);
+
+    this.setState({ 
+      managerBio: userObj, 
+      rosterStats: rosterObj
+    }, () => {
+      console.log('Roster => ' + JSON.stringify(this.state.rosterStats));
+      console.log('Manager Stats => ' + JSON.stringify(this.state.managerBio));
+    })
+
+    
+  }
+
+  render() {
+
+    let rosterStats = this.state.rosterStats;
+    let managerBio = this.state.managerBio;
 
     return (
       <div className='roster-profile'>
         <div className='player-wrapper'>
           <img className='player-image' src={player} alt='dynamic player name' />
-    <div className='player-name'>{userId}</div>
+          <div className='player-name'>{managerBio.firstname} {managerBio.lastname}</div>
         </div>
         <div className='player-info'>
           <CarouselProvider
@@ -50,13 +60,13 @@ class Profile extends React.Component {
           >
             <Slider>
               <Slide index={0}>
-                <Bio managerData={this.props.managerData} />
+                <Bio managerData={managerBio} />
               </Slide>
               <Slide index={1}>
-                <Stats rosterData={this.props.rosterData} />
+                <Stats rosterData={rosterStats} />
               </Slide>
               <Slide index={2}>
-                <Starters rosterData={this.props.rosterData}/>
+                <Starters rosterData={rosterStats} />
               </Slide>
             </Slider>
             <DotGroup />
