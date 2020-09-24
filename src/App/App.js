@@ -7,13 +7,15 @@ import Roster from '../Roster/Roster'
 import About from '../About/About'
 import Profile from '../Profile/Profile'
 import './App.css';
+// import Config from '../config';
 
 class App extends Component {
     state = {
       user: '',
       rosterData: [],
       managerData: [],
-      currentUser: {}
+      currentUser: {},
+      starters: []
     }
 
   // componentDidUpdate() {
@@ -26,8 +28,28 @@ class App extends Component {
 
   changeUser = (id) => {
     this.setState({ user: id }, () => {
+      this.updateStarters(id);
       console.log('changeUser callback: ' + this.state.user)
     })
+  }
+
+  updateStarters = (id) => {
+    let roster = this.state.rosterData.find(playerId => {
+      return playerId.owner_id === id;
+    })
+    let param = roster.starters.toString().replace(/,/g, "-");
+    console.log('param: ' + param);
+    fetch(`https://intense-mesa-76351.herokuapp.com/player/ids/` + param)
+    .then(res => res.json())
+    .then((starters) => {
+      if(starters) {
+        // console.log('starters from retrieve starter names' + JSON.stringify(starters))
+        this.setState ({ starters }, () => {
+          console.log('updateStarters callback')
+        }) 
+      }
+    })
+    .catch(error => this.setState({ error }))
   }
 
   componentDidMount() {
@@ -42,7 +64,7 @@ class App extends Component {
       })
       .catch(error => this.setState({ error }))
 
-    fetch(`https://intense-mesa-76351.herokuapp.com/manager`)
+    fetch(`https://intense-mesa-76351.herokuapp.com/manager/`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -87,6 +109,7 @@ class App extends Component {
                 <Profile 
                   userId={this.state.user}
                   managerData={this.state.managerData}
+                  starters={this.state.starters}
                   rosterData={this.state.rosterData} />
               </Route>
             </Switch>

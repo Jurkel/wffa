@@ -1,37 +1,42 @@
-import React from 'react'
-import './Starters.css'
+import React from 'react';
+import './Starters.css';
+// import { withRouter } from 'react-router-dom'
+// import Config from '../config';
 
 class Starters extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      starters: []
+      starters: [],
+      error: ''
     }
   }
 
-  // componentDidMount() {
-  //   console.log('starter data 1 => ' + JSON.stringify(this.props.rosterData));
-  //   const starterArray = this.props.rosterData.starters;
-  //   console.log('starter array 1 => ' + JSON.stringify(starterArray))
-  //   this.setState({
-  //     starters: starterArray
-  //   }, () => {
-  //     console.log('starter array set state => ' + this.state.starters)
+  // componentDidMount = () => {
+  //   let param = this.props.starters.toString().replace(/,/g, "-");
+  //   console.log('param: ' + param);
+  //   fetch(`https://intense-mesa-76351.herokuapp.com/player/ids/` + param)
+  //   .then(res => res.json())
+  //   .then((starters) => {
+  //     if(starters) {
+  //       // console.log('starters from retrieve starter names' + JSON.stringify(starters))
+  //       this.setState ({ starters }) 
+  //     }
   //   })
+  //   .catch(error => this.setState({ error }))
   // }
 
   render() {
 
-    console.log('This is render from starters' + this.props.starters)
-    // const starters = this.props.starters;
-    let starters = this.props.starters.map((list, key) => 
-      <div 
-      key={key}
-      className='starter-flex'>
-        <h4>{list}</h4>
-      </div>
+    // this.retrieveStarterNames();
+    // const starters = this.state.starters;
+    // console.log('starters from state > ' + JSON.stringify(starters))
+    let starters = this.props.starters.map((starter, index) => 
+       <div key={index}>
+      {starter.player.position} - {starter.player.full_name}
+    </div>
     )
-  
+
   
   return (
     <div className='starters-wrapper'>

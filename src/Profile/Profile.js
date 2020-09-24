@@ -13,7 +13,7 @@ class Profile extends React.Component {
   render() {
     console.log('from profile - managerbio: ' + JSON.stringify(this.props.location.state.managerBio));
     console.log('from profile - rosterStats: ' + JSON.stringify(this.props.location.state.rosterStats));
-    console.log('from profile - starters: ' + JSON.stringify(this.props.location.state.starters));
+    console.log('from profile - starters: ' + JSON.stringify(this.props.starters));
 
     return (
       <div className='roster-profile'>
@@ -35,7 +35,7 @@ class Profile extends React.Component {
                 <Stats rosterData={this.props.location.state.rosterStats} />
               </Slide>
               <Slide index={2}>
-                <Starters starters={this.props.location.state.starters} />
+                <Starters starters={this.props.starters} />
               </Slide>
             </Slider>
             <DotGroup />
