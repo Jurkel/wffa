@@ -1,9 +1,11 @@
-import React from 'react'
-import zeke from '../images/Zeke.png'
-import bosa from '../images/Bosa.png'
-import thomas from '../images/mike-thomas.png'
-import radial from '../images/radial.png'
-import './Home.css'
+import React from 'react';
+import zeke from '../images/Zeke.png';
+import bosa from '../images/Bosa.png';
+import thomas from '../images/mike-thomas.png';
+import radial from '../images/radial.png';
+import './Home.css';
+import {API_ROSTER} from '../config';
+import {API_MANAGER} from '../config';
 
 class Home extends React.Component {
     state = {
@@ -14,48 +16,111 @@ class Home extends React.Component {
       scoreInfo: []
     }
 
+  calculatePlacement = (info) => {
+    let wins = [];
+    let losses = [];
+    let totalManagers = info.length;
+
+    //sort win/losses
+    info.sort((a, b) => {
+      return a.settings.wins - b.settings.wins;
+    })
+
+    let winOverall = info[totalManagers - 1].settings.wins;
+    let lossOverall = info[0].settings.losses;
+
+    info.forEach((i, index) => {
+      if(i.settings.wins === winOverall) {
+        wins.push(i);
+      } else if(i.settings.losses === lossOverall) {
+        losses.push(i);
+      }
+
+      if(index === totalManagers - 1) {
+        wins.sort((a, b) => {
+          return b.settings.fpts - a.settings.fpts;
+        })
+
+        losses.sort((a, b) => {
+          return a.settings.fpts - b.settings.fpts;
+        })
+
+        fetch(`${API_MANAGER}` + wins[0].owner_id)
+        .then(res => res.json())
+        .then(manager => {
+          if(manager) {
+            this.setState({ best: manager[0].display_name }, () => {
+              console.log('best > ' + this.state.best)
+            })
+          }
+        })
+        .catch(err => console.log(err))
+
+        fetch(`${API_MANAGER}` + losses[0].owner_id)
+        .then(res => res.json())
+        .then(manager => {
+          if(manager) {
+            this.setState({ worst: manager[0].display_name }, () => {
+              console.log('worst > ' + this.state.worst)
+            })
+          }
+        })
+        .catch(err => console.log(err))
+      }
+    })
+  }
+
+  calculatePointsPlacement = (info) => {
+    let totalManagers = info.length;
+
+    //sort best/worst pts
+    info.sort((a, b) => {
+      return a.settings.fpts - b.settings.fpts;
+    })
+    
+    fetch(`${API_MANAGER}` + info[0].owner_id)
+    .then(res => res.json())
+    .then(manager => {
+      if(manager) {
+        this.setState({ least: manager[0].display_name }, () => {
+          console.log('least > ' + this.state.least)
+        })
+      }
+    })
+    .catch(err => console.log(err))
+    
+
+    fetch(`${API_MANAGER}` +info[totalManagers - 1].owner_id)
+    .then(res => res.json())
+    .then(manager => {
+      if(manager) {
+        this.setState({ most: manager[0].display_name }, () => {
+          console.log('most > ' + this.state.most)
+        })
+      }
+    })
+    .catch(err => console.log(err))
+  }
+
   componentDidMount() {
 
-    let best = 0;
-    let worst = 0;
-    let most = 0;
-    let least = 0;
-    let info = this.state.scoreInfo;
+    const roster = this.props.rosterData;
+    console.log('roster in home: ' + JSON.stringify(roster))
 
-    fetch(`https://api.sleeper.app/v1/league/590186196781543424/rosters`)
+    fetch(`${API_ROSTER}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
           scoreInfo: data
+        }, () => {
+          console.log('Home > ' + this.state.scoreInfo)
+          this.calculatePointsPlacement(this.state.scoreInfo);
+          this.calculatePlacement(this.state.scoreInfo);
         })
-        console.log(this.state.scoreInfo)
       })
       .catch(error => this.setState({ error }))
       
-
-    info.forEach(score => {
-      if (best === score.settings.wins) {
-        return this.setState({ best: score.owner_id })
-      } 
-    })
-
-    info.forEach(score => {
-      if (worst < score.settings.losses) {
-        return this.setState({ worst: score.owner_id })
-      } 
-    })
-
-    info.forEach(score => {
-      if (most < score.settings.fpts) {
-        return this.setState({ most: score.owner_id })
-      } 
-    })
-
-    info.forEach(score => {
-      if (least < score.settings.fpts) {
-        return this.setState({ least: score.owner_id })
-      } 
-    })
+    // let info = this.state.scoreInfo
   }
 
   render() {
@@ -77,10 +142,10 @@ class Home extends React.Component {
         
         <div className='leaderboard'>
           <h1>Leaderboard</h1>
-          <h3>Most points:</h3>
-          <h3>Least points:</h3>
-          <h3>Best record:</h3><h3>{this.state.best}</h3>
-          <h3>Worst record:</h3><h3>{this.state.worst}</h3>
+          <h3>Most points:</h3><h3>{this.state.most}</h3>
+          <h3>Least points:</h3><h3>{this.state.least}</h3>
+          <h3>Leader:</h3><h3>{this.state.best}</h3>
+          <h3>Last Place:</h3><h3>{this.state.worst}</h3>
         </div>
       </div>
     )

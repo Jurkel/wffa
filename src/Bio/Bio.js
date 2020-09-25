@@ -1,7 +1,7 @@
 import React from 'react'
 import './Bio.css'
 
-function Bio() {
+function Bio(props) {
   return (
     <div className='bio-wrapper'>
       <h2 className='player-title'>Bio</h2>
@@ -9,11 +9,11 @@ function Bio() {
         <div className='bio-horizontal'>
           <div className='bio-height'>
             <h4>Height</h4>
-            <h3>5'10"</h3>  
+            <h3>{props.managerData.height}</h3>  
           </div>
           <div className='bio-weight'>
             <h4>Weight</h4>
-            <h3>135 lbs</h3>
+            <h3>{props.managerData.weight} lbs</h3>
           </div>
           <div className='bio-dob'>
             <h4>DOB</h4>
@@ -22,19 +22,19 @@ function Bio() {
         </div>
         <div className='bio-school'>
           <h4>School</h4>
-          <h3>The Ohio State University</h3>
+          <h3>{props.managerData.school}</h3>
         </div>
         <div className='bio-experience'>
           <h4>Experience</h4>
-          <h3>3rd Season</h3>
+          <h3>{props.managerData.experience}</h3>
         </div>
         <div className='bio-fav-team'>
           <h4>Favorite Team</h4>
-          <h3>Cleveland Browns</h3>
+          <h3>{props.managerData.favoriteteam}</h3>
         </div>
         <div className='bio-fav-player'>
           <h4>Favorite Player</h4>
-          <h3>Lamar Jackson</h3>
+          <h3>{props.managerData.favoriteplayer}</h3>
         </div>
         <div className='bio-goals'>
           <h4>Goals</h4>

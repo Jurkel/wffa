@@ -7,7 +7,9 @@ import Roster from '../Roster/Roster'
 import About from '../About/About'
 import Profile from '../Profile/Profile'
 import './App.css';
-// import Config from '../config';
+import {API_ROSTER} from '../config';
+import {API_MANAGERS} from '../config';
+import {API_STARTERS} from '../config';
 
 class App extends Component {
     state = {
@@ -17,14 +19,6 @@ class App extends Component {
       currentUser: {},
       starters: []
     }
-
-  // componentDidUpdate() {
-  //   let rosterInfo = this.state.rosterData;
-
-  //   rosterInfo.map(userId => {
-  //     return (this.state.user === userId.owner_id ? this.setState({ currentUser }) : '');
-  //   })
-  // }
 
   changeUser = (id) => {
     this.setState({ user: id }, () => {
@@ -39,11 +33,11 @@ class App extends Component {
     })
     let param = roster.starters.toString().replace(/,/g, "-");
     console.log('param: ' + param);
-    fetch(`https://intense-mesa-76351.herokuapp.com/player/ids/` + param)
+    fetch(`${API_STARTERS}` + param)
     .then(res => res.json())
     .then((starters) => {
       if(starters) {
-        // console.log('starters from retrieve starter names' + JSON.stringify(starters))
+        console.log('starters from retrieve starter names' + JSON.stringify(starters))
         this.setState ({ starters }, () => {
           console.log('updateStarters callback')
         }) 
@@ -53,7 +47,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.sleeper.app/v1/league/590186196781543424/rosters`)
+    fetch(`${API_ROSTER}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -64,7 +58,7 @@ class App extends Component {
       })
       .catch(error => this.setState({ error }))
 
-    fetch(`https://intense-mesa-76351.herokuapp.com/manager/`)
+    fetch(`${API_MANAGERS}`)
       .then(res => res.json())
       .then(data => {
         this.setState({

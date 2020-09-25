@@ -9,26 +9,26 @@ function Stats(props) {
         <div className='wins-losses'>
           <div className='stats-wins'>
             <h4>Wins</h4>
-            <h3>3</h3>
+            <h3>{props.rosterData.settings.wins}</h3>
           </div>
           <div className='stats-losses'>
             <h4>Losses</h4>
-            <h3>1</h3>
+            <h3>{props.rosterData.settings.losses}</h3>
           </div>
         </div>
         <div className='waiver-budget stats-flex-row'>
-          <h4>Waiver Budget Used: </h4><h3>$45</h3>
+          <h4>Waiver Budget Used: </h4><h3>${props.rosterData.settings.waiver_budget_used}</h3>
         </div>
         <div className='total-aquisition stats-flex-row'>
-          <h4>Total Aquisitions: </h4><h3>5</h3>
+          <h4>Waiver Position: </h4><h3>{props.rosterData.settings.waiver_position}</h3>
         </div>
         <div className='points-scored'>
           <h4>Points Scored</h4>
-          <h3>458.25</h3>
+          <h3>{props.rosterData.settings.fpts}.{props.rosterData.settings.fpts_decimal}</h3>
         </div>
         <div className='points-against'>
           <h4>Points Against</h4>
-          <h3>549.3</h3>
+          <h3>{props.rosterData.settings.fpts_against}.{props.rosterData.settings.fpts_against_decimal}</h3>
         </div>
       </div>
     </div>

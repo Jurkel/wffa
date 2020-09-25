@@ -22,12 +22,6 @@ class Roster extends React.Component {
     })
   }
 
-  // findStarterStats = (id) => {
-  //   return this.props.rosterData.find(roster => {
-  //     return roster.owner_id === id ? roster.starters : '';
-  //   })
-  // }
-
   render() {
 
     const managers = this.props.managerData.map((list, index) => 
