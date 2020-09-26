@@ -12,10 +12,18 @@
 .starters-wrapper h3 {
   color: #f2f2f2;
   font-size: 16px;
+  margin-left: 10px;
+  margin-top: 20px;
 }
 
 .starter-flex {
   display: flex;
   flex-direction: row;
   margin-bottom: -25px;
+}
+
+.starters-team {
+  text-align: right;
+  font-weight: 500;
+  color: #FFD08A;
 }

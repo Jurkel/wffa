@@ -3,6 +3,7 @@ import zeke from '../images/Zeke.png';
 import bosa from '../images/Bosa.png';
 import thomas from '../images/mike-thomas.png';
 import radial from '../images/radial.png';
+import { Link } from 'react-router-dom'
 import './Home.css';
 import {API_ROSTER} from '../config';
 import {API_MANAGER} from '../config';
@@ -131,6 +132,12 @@ class Home extends React.Component {
           <img className='bosa' src={bosa} alt='nick bosa' />
           <img className='zeke' src={zeke} alt='zeke elliot' />
           <img className='thomas' src={thomas} alt='mike thomas' />
+
+          <Link to='/roster'>
+            <button className='roster-button' type='button'>
+              Roster
+            </button>
+          </Link>
           
         </div>
 
@@ -142,10 +149,18 @@ class Home extends React.Component {
         
         <div className='leaderboard'>
           <h1>Leaderboard</h1>
-          <h3>Most points:</h3><h3>{this.state.most}</h3>
-          <h3>Least points:</h3><h3>{this.state.least}</h3>
-          <h3>Leader:</h3><h3>{this.state.best}</h3>
-          <h3>Last Place:</h3><h3>{this.state.worst}</h3>
+          <div className='leaderboard-stat'>
+            <h3>Most points:</h3><h4>{this.state.most}</h4>
+          </div>
+          <div className='leaderboard-stat'>
+            <h3>Least points:</h3><h4>{this.state.least}</h4>
+          </div>
+          <div className='leaderboard-stat'>
+            <h3>Leader:</h3><h4>{this.state.best}</h4>
+          </div>
+          <div className='leaderboard-stat'>
+            <h3>Last Place:</h3><h4>{this.state.worst}</h4>
+          </div>
         </div>
       </div>
     )

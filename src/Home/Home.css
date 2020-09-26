@@ -97,17 +97,46 @@
   padding-left: 15px;
 }
 
-.leaderboard > h1 {
+.leaderboard-stat {
+  display: flex;
+  background: transparent;
+}
+
+.leaderboard h1 {
   background-color: transparent;
   color: #FFD08A;
   font-size: 20px;
   letter-spacing: .07em;
 }
 
-.leaderboard > h3 {
-  color: #e5e5e5;
+.leaderboard h3 {
+  color: #ffffff;
   font-size: 14px;
   background: transparent;
+}
+
+.leaderboard h4 {
+  color: #e5e5e5;
+  font-size: 12px;
+  background: transparent;
+  margin-left: 5px;
+  text-transform: none;
+}
+
+.roster-button {
+  position: absolute;
+  top: 360px;
+  left: 36%;
+  border: 1px solid #FFD08A;
+  border-radius: 20px;
+  padding: 3px 15px;
+  color: #FFD08A;
+}
+
+.roster-button:hover {
+  background: #FFD08A;
+  color: #333333;
+  font-weight: 700;
 }
 
 @media screen and (min-width: 374px) {
@@ -142,7 +171,7 @@
     margin-bottom: 25px;
   }
 
-  .leaderboard > h3 {
+  .leaderboard h3 {
     font-size: 12px;
   }
 

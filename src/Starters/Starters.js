@@ -14,7 +14,7 @@ class Starters extends React.Component {
 
     let starters = this.props.starters.map((starter, index) => 
       <div key={index} className='starter-flex'>
-        <h4>{starter.player.position}:</h4><h3>  {starter.player.full_name}</h3>
+        <h4>{starter.player.position}:</h4><h3>  {starter.player.full_name} - <span className='starters-team'>{starter.player.team}</span></h3>
       </div>
     )
 
