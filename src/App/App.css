@@ -1,4 +1,7 @@
 * {
   box-sizing: border-box;
   background-color: #333333;
+  background-image: url('../images/carbon-fibre-v2.png');
+  background-repeat: repeat;
+  z-index: 0;
 }
