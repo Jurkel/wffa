@@ -133,11 +133,15 @@ class Home extends React.Component {
           <img className='zeke' src={zeke} alt='zeke elliot' />
           <img className='thomas' src={thomas} alt='mike thomas' />
 
-          <Link to='/roster'>
-            <button className='roster-button' type='button'>
-              Roster
-            </button>
-          </Link>
+          <div className='button-wrapper'>
+            <h3>See who's playing.</h3>
+            <Link to='/roster'>
+              <button className='roster-button' type='button'>
+                Roster
+              </button>
+            </Link>
+          </div>
+          
           
         </div>
 

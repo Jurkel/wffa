@@ -19,6 +19,7 @@ function Stats(props) {
         <div className='waiver-budget stats-flex-row'>
           <h4>Waiver Budget Used: </h4><h3>${props.rosterData.settings.waiver_budget_used}</h3>
         </div>
+        <br />
         <div className='total-aquisition stats-flex-row'>
           <h4>Waiver Position: </h4><h3>{props.rosterData.settings.waiver_position}</h3>
         </div>

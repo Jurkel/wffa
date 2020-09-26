@@ -49,3 +49,27 @@
 .manager-list li {
   margin-bottom: 7px;
 }
+
+@media screen and (min-width: 424px) {
+  .roster-list {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .roster-list {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .roster-list {
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 1439px) {
+  .roster-list {
+    width: 25%;
+  }
+}

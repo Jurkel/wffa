@@ -1,6 +1,9 @@
 .stats-wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.stats-text {
   text-align: center;
 }
 
@@ -34,4 +37,10 @@
 
 .stats-wins {
   margin-right: 15px;
+}
+
+@media screen and (min-width: 1023px) {
+  .wins-losses {
+    margin-left: 36%;
+  }
 }

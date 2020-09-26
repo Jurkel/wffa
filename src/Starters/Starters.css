@@ -1,5 +1,5 @@
 .starter-list {
-  margin-left: 35px;
+  margin-left: 25px;
 }
 
 
@@ -11,8 +11,8 @@
 
 .starters-wrapper h3 {
   color: #f2f2f2;
-  font-size: 16px;
-  margin-left: 10px;
+  font-size: 14px;
+  margin-left: 5px;
   margin-top: 20px;
 }
 
@@ -26,4 +26,29 @@
   text-align: right;
   font-weight: 500;
   color: #FFD08A;
+}
+
+@media screen and (min-width: 424px) {
+  .starter-list {
+    margin-left: 35px;
+  }
+
+  .starters-wrapper h3 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .starter-list {
+    margin-left: 40px;
+  }
+
+  .starters-wrapper h4 {
+    font-size: 18px;
+  }
+
+  .starters-wrapper h3 {
+    font-size: 16;
+    margin-top: 25px;
+  }
 }

@@ -3,9 +3,14 @@
   margin-right: auto;
   margin-left: auto;
   grid-template-rows: 1fr 1fr;
-  height: 650px;
+  height: 450px;
   max-width: 100%;
   margin-top: 80px;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
 }
 
 .zeke {
@@ -81,7 +86,7 @@
 }
 
 .beige2 {
-  margin-top: 40px;
+  margin-top: 10px;
   margin-left: 12px;
 }
 
@@ -95,6 +100,7 @@
   margin-left: auto;
   border-radius: 10px;
   padding-left: 15px;
+  margin-top: 25px;
 }
 
 .leaderboard-stat {
@@ -123,14 +129,29 @@
   text-transform: none;
 }
 
+.button-wrapper {
+  background: transparent;
+}
+
+.button-wrapper h3 {
+  background: transparent;
+  margin-top: 290px;
+  color: #e5e5e5;
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+}
+
 .roster-button {
-  position: absolute;
-  top: 360px;
+  margin-top: -5px;
+  position: relative;
   left: 36%;
   border: 1px solid #FFD08A;
   border-radius: 20px;
-  padding: 3px 15px;
+  padding: 3px 20px;
   color: #FFD08A;
+  background: transparent;
+  font-size: 16px;
 }
 
 .roster-button:hover {
@@ -153,12 +174,16 @@
   .leaderboard {
     margin-top: 20px;
   }
+
+  .button-wrapper h3 {
+    margin-top: 320px;
+  }
 }
 
 @media screen and (min-width: 767px) {
   .leaderboard {
     width: 35%;
-    height: 230px;
+    height: 240px;
     display: relative;
     margin-left: 30px;
     margin-top: -120px;
@@ -173,6 +198,32 @@
 
   .leaderboard h3 {
     font-size: 12px;
+    margin-top: 16px;
+  }
+
+  .leaderboard-stat {
+    margin-bottom: -5px;
+  }
+
+  .home-text {
+    top: 95px;
+  }
+
+  .beige {
+    font-size: 45px;
+  }
+
+  .beige1 {
+    margin-left: 65px;
+  }
+
+  .beige2 {
+    margin-top: -10px;
+    margin-left: 55px;
+  }
+
+  .hero-text {
+    font-size: 75px;
   }
 
   .zeke {
@@ -199,5 +250,81 @@
   .radial {
     top: 95px;
     width: 65%;
+  }
+
+  .button-wrapper {
+    position: absolute;
+    top: 320px;
+    right: 45px;
+  }
+
+  .button-wrapper h3 {
+    font-weight: 500;
+    font-size: 32px;
+  }
+
+  .roster-button {
+    margin-top: -10px;
+    position: relative;
+    left: 31%;
+    border: 1px solid #FFD08A;
+    border-radius: 20px;
+    padding: 8px 30px;
+    color: #FFD08A;
+    background: transparent;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .zeke {
+    width: 53%;
+    margin-top: 310px;
+  }
+
+  .button-wrapper {
+    top: 500px;
+  }
+
+  .beige {
+    font-size: 65px;
+  }
+
+  .hero-text {
+    font-size: 95px;
+  }
+
+  .hero-fantasy {
+    margin-top: 45px;
+  }
+
+  .leaderboard {
+    height: 280px;
+  }
+
+  .leaderboard h3 {
+    font-size: 16px;
+  }
+
+  .leaderboard h4 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1439px) {
+  .zeke {
+    margin-top: 400px;
+  }
+
+  .radial {
+    top: 70px;
+  }
+
+  .button-wrapper {
+    top: 740px;
+  }
+
+  .button-wrapper h3 {
+    font-size: 45px;
   }
 }
