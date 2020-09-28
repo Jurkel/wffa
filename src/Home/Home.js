@@ -18,10 +18,6 @@ class Home extends React.Component {
       worstId: '',
       mostId: '',
       leastId: '',
-      mostPoints: '',
-      leastPoints: '',
-      leader: '',
-      lastPlace: '',
       scoreInfo: []
     }
 

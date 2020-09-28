@@ -10,9 +10,6 @@ import './Profile.css'
 class Profile extends React.Component {
 
   render() {
-    console.log('from profile - managerbio: ' + JSON.stringify(this.props.location.state.managerBio));
-    console.log('from profile - rosterStats: ' + JSON.stringify(this.props.location.state.rosterStats));
-    console.log('from profile - starters: ' + JSON.stringify(this.props.starters));
 
     return (
       <div className='roster-profile'>

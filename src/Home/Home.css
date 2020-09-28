@@ -265,7 +265,7 @@
 
   .button-wrapper {
     position: absolute;
-    top: 320px;
+    top: 120px;
     right: 45px;
   }
 
@@ -294,7 +294,7 @@
   }
 
   .button-wrapper {
-    top: 500px;
+    top: 300px;
   }
 
   .beige {

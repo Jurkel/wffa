@@ -23,7 +23,6 @@ class App extends Component {
   changeUser = (id) => {
     this.setState({ user: id }, () => {
       this.updateStarters(id);
-      console.log('changeUser callback: ' + this.state.user)
     })
   }
 
@@ -37,10 +36,7 @@ class App extends Component {
     .then(res => res.json())
     .then((starters) => {
       if(starters) {
-        console.log('starters from retrieve starter names' + JSON.stringify(starters))
-        this.setState ({ starters }, () => {
-          console.log('updateStarters callback')
-        }) 
+        this.setState ({ starters }) 
       }
     })
     .catch(error => this.setState({ error }))
@@ -50,22 +46,14 @@ class App extends Component {
     fetch(`${API_ROSTER}`)
       .then(res => res.json())
       .then(data => {
-        this.setState({
-          rosterData: data
-        }, () => {
-          console.log('callback from App getting rosters: ' + this.state.rosterData)
-        })
+        this.setState({ rosterData: data })
       })
       .catch(error => this.setState({ error }))
 
     fetch(`${API_MANAGERS}`)
       .then(res => res.json())
       .then(data => {
-        this.setState({
-          managerData: data
-        }, () => {
-          console.log('callback from App getting manager: ' + this.state.managerData)
-        })
+        this.setState({ managerData: data })
       })
       .catch(error => this.setState({ error }))
   }
