@@ -48,7 +48,13 @@
 }
 
 .player-info {
-  height: 500px;
+  height: 550px;
+}
+
+.player-image {
+  width: 60%;
+  height: auto;
+  margin-bottom: 33px;
 }
 
 .bio-small-stats {
@@ -64,6 +70,10 @@
   .player-name {
     margin-top: -7px;
   }
+
+  .player-image {
+    margin-bottom: 39px;
+  }
 }
 
 @media screen and (min-width: 424px) {
@@ -75,6 +85,10 @@
   .player-name {
     margin-top: -12px;
   }
+
+  .player-image {
+    margin-bottom: 45px;
+  }
 }
 
 @media screen and (min-width: 767px) {
@@ -84,27 +98,29 @@
   }
 
   .player-info {
-    margin-right: 30px;
+    margin-left: 30px;
+    margin-right: 25px;
+    width: 80%;
   }
 
   .player-image {
-    width: 100%;
+    width: 90%;
     height: auto;
     margin-top: 45px;
   }
 
   .player-name {
-    margin-top: -16px;
+    margin-top: -10px;
   }
 }
 
 @media screen and (min-width: 1023px) {
   .carousel__dot-group {
-    margin-top: -10px;
+    margin-top: -20px;
   }
 
   .player-info {
-    width: 52%;
+    max-width: 42%;
     height: 550px;
     margin-top: 95px;
     margin-right: 65px;
@@ -112,10 +128,11 @@
 
   .player-image {
     margin-top: 20px;
+    width: 85%;
   }
 
   .player-name {
-    margin-top: -35px;
+    margin-top: -12px;
   }
 }
 
@@ -123,11 +140,11 @@
   .player-info {
     width: 30%;
     height: 625px;
-    margin-right: 170px;
+    margin-right: 80px;
   }
 
   .player-wrapper {
-    margin-left: 65px;
+    margin-left: 165px;
   }
 
   .player-image {

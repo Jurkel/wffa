@@ -3,9 +3,11 @@
   margin-right: auto;
   margin-left: auto;
   top: 150px;
-  height: 450px;
+  height: auto;
   width: 90%;
   border: 1px solid #FFD08A;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
 .roster-list h2 {
@@ -22,11 +24,6 @@
   position: relative;
   top: 50px;
   text-align: center;
-}
-
-.player-image {
-  width: 90%;
-  height: auto;
 }
 
 .player-info {
@@ -47,11 +44,19 @@
 .manager-list ul {
   list-style: none;
   background: transparent;
-  margin-left: -20px;
 }
 
 .manager-list li {
-  margin-bottom: 7px;
+  margin-bottom: 15px;
+  background: rgba(122, 122, 122, .21);
+  border-radius: 8px;
+  padding: 15px 0;
+  width: 80%;
+}
+
+.manager-list img {
+  width: 55%;
+  height: auto;
   background: transparent;
 }
 
