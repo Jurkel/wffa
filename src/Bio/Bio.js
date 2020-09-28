@@ -17,7 +17,7 @@ function Bio(props) {
           </div>
           <div className='bio-dob'>
             <h4>DOB</h4>
-            <h3>1-25-90</h3>
+            <h3>{props.managerData.dob}</h3>
           </div> 
         </div>
         <div className='bio-school'>
@@ -35,10 +35,6 @@ function Bio(props) {
         <div className='bio-fav-player'>
           <h4>Favorite Player</h4>
           <h3>{props.managerData.favoriteplayer}</h3>
-        </div>
-        <div className='bio-goals'>
-          <h4>Goals</h4>
-          <h3>Win the league</h3>
         </div>
       </div>
     </div>

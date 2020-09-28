@@ -1,5 +1,4 @@
 import React from 'react'
-import player from '../images/player.png'
 import Bio from '../Bio/Bio'
 import Stats from '../Stats/Stats'
 import Starters from '../Starters/Starters'
@@ -18,7 +17,7 @@ class Profile extends React.Component {
     return (
       <div className='roster-profile'>
         <div className='player-wrapper'>
-          <img className='player-image' src={player} alt='dynamic player name' />
+          <img className='player-image' src={require(`../images/${this.props.location.state.managerBio.firstname}.png`)} alt={this.props.location.state.managerBio.display_name} />
           <div className='player-name'>{this.props.location.state.managerBio.firstname} {this.props.location.state.managerBio.lastname}</div>
         </div>
         <div className='player-info'>

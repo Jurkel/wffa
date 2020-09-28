@@ -92,6 +92,7 @@
 
 .leaderboard {
   background-color: rgba(88, 88, 88, .2);
+  background-image: none;
   font-family: 'Lato';
   font-weight: 300;
   text-transform: uppercase;
@@ -240,8 +241,8 @@
     position: relative;
     visibility: visible;
     background: transparent;
-    bottom: -130px;
-    width: 50%;
+    bottom: -145px;
+    width: 60%;
     height: auto;
     z-index: 0;
     margin-top: 15px;

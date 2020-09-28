@@ -1,10 +1,12 @@
 .stats-wrapper {
   display: flex;
   flex-direction: column;
+  background: transparent;
 }
 
 .stats-text {
   text-align: center;
+  background: transparent;
 }
 
 .stats-wrapper h4 {
@@ -33,6 +35,14 @@
   display: flex;
   flex-direction: row;
   margin-left: 33%;
+}
+
+.points-scored h3, h4 {
+  background: transparent;
+}
+
+.points-against h3, h4 {
+  background: transparent;
 }
 
 .stats-wins {

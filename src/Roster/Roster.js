@@ -26,6 +26,7 @@ class Roster extends React.Component {
 
     const managers = this.props.managerData.map((list, index) => 
     <li key={index}>
+      <img src={require(`../images/${list.firstname}.png`)} alt={list.display_name} />
       <Link 
         style={{
           paddingLeft: 13,

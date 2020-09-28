@@ -24,6 +24,7 @@
   text-decoration: none;
   padding: 10px;
   text-transform: uppercase;
+  background: transparent;
 }
 
 .logo-image {
@@ -31,8 +32,10 @@
   height: auto;
   z-index: inherit;
   margin: 10px;
+  background: transparent;
 }
 
 .nav-bar {
   height: 0;
+  background: transparent;
 }

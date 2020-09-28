@@ -40,6 +40,10 @@
   margin-bottom: 20px;
 }
 
+.manager-list {
+  background: transparent;
+}
+
 .manager-list ul {
   list-style: none;
   background: transparent;
@@ -48,6 +52,7 @@
 
 .manager-list li {
   margin-bottom: 7px;
+  background: transparent;
 }
 
 @media screen and (min-width: 424px) {

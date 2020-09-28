@@ -6,12 +6,14 @@
   font-family: 'Courier';
   width: 90%;
   margin-bottom: -13px;
+  background: transparent;
 }
 
 .bio-small-stats h3 {
   color: #F2F2F2;
   font-size: 13px;
   margin-bottom: 10px;
+  background: transparent;
 }
 
 .bio-small-stats {
@@ -20,12 +22,46 @@
   justify-content: space-evenly;
   padding-right: 15px;
   padding-left: 15px;
+  background: transparent;
+}
+
+.bio-school {
+  background: transparent;
+}
+
+.bio-weight {
+  background: transparent;
+}
+
+.bio-height {
+  background: transparent;
+}
+
+.bio-dob {
+  background: transparent;
+}
+
+.bio-experience {
+  background: transparent;
+}
+
+.bio-fav-team {
+  background: transparent;
+}
+
+.bio-fav-player {
+  background: transparent;
+}
+
+.bio-goals {
+  background: transparent;
 }
 
 .bio-horizontal {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background: transparent;
 }
 
 @media screen and (min-width: 1023px) {
