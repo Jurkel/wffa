@@ -14,6 +14,14 @@ class Home extends React.Component {
       worst: '',
       most: '',
       least: '',
+      bestId: '',
+      worstId: '',
+      mostId: '',
+      leastId: '',
+      mostPoints: '',
+      leastPoints: '',
+      leader: '',
+      lastPlace: '',
       scoreInfo: []
     }
 
@@ -50,8 +58,9 @@ class Home extends React.Component {
         .then(res => res.json())
         .then(manager => {
           if(manager) {
-            this.setState({ best: manager[0].display_name }, () => {
-              console.log('best > ' + this.state.best)
+            this.setState({ 
+              best: manager[0].display_name,
+              bestId: manager[0].owner_id
             })
           }
         })
@@ -61,8 +70,9 @@ class Home extends React.Component {
         .then(res => res.json())
         .then(manager => {
           if(manager) {
-            this.setState({ worst: manager[0].display_name }, () => {
-              console.log('worst > ' + this.state.worst)
+            this.setState({ 
+              worst: manager[0].display_name,
+              worstId: manager[0].owner_id
             })
           }
         })
@@ -83,20 +93,22 @@ class Home extends React.Component {
     .then(res => res.json())
     .then(manager => {
       if(manager) {
-        this.setState({ least: manager[0].display_name }, () => {
-          console.log('least > ' + this.state.least)
+        this.setState({ 
+          least: manager[0].display_name,
+          leastId: manager[0].owner_id
         })
       }
     })
     .catch(err => console.log(err))
     
 
-    fetch(`${API_MANAGER}` +info[totalManagers - 1].owner_id)
+    fetch(`${API_MANAGER}` + info[totalManagers - 1].owner_id)
     .then(res => res.json())
     .then(manager => {
       if(manager) {
-        this.setState({ most: manager[0].display_name }, () => {
-          console.log('most > ' + this.state.most)
+        this.setState({ 
+          most: manager[0].display_name,
+          mostId: manager[0].owner_id 
         })
       }
     })
@@ -105,26 +117,28 @@ class Home extends React.Component {
 
   componentDidMount() {
 
-    const roster = this.props.rosterData;
-    console.log('roster in home: ' + JSON.stringify(roster))
-
     fetch(`${API_ROSTER}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
           scoreInfo: data
         }, () => {
-          console.log('Home > ' + this.state.scoreInfo)
           this.calculatePointsPlacement(this.state.scoreInfo);
           this.calculatePlacement(this.state.scoreInfo);
         })
       })
       .catch(error => this.setState({ error }))
-      
-    // let info = this.state.scoreInfo
   }
 
+  findRosterStats = (id) => {
+    return this.state.scoreInfo.find(roster => {
+        return roster.owner_id === id;
+    })
+  }
+
+
   render() {
+
     return (
       <div className='home'>
         <div className='hero-image'>

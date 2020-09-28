@@ -60,6 +60,12 @@
   background: transparent;
 }
 
+@media screen and (min-width: 413px) {
+  .roster-list {
+    width: 70%;
+  }
+}
+
 @media screen and (min-width: 424px) {
   .roster-list {
     width: 80%;

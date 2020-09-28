@@ -167,6 +167,16 @@
   }
 }
 
+@media screen and (min-width: 413px) {
+  .radial {
+    top: 12px;
+  }
+
+  .button-wrapper {
+    margin-top: 310px;
+  }
+}
+
 @media screen and (min-width: 424px) {
   .radial {
     top: 8px;
