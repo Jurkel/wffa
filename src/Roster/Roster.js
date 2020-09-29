@@ -23,7 +23,7 @@ class Roster extends React.Component {
   }
 
   render() {
-
+    
     const managers = this.props.managerData.map((list, index) => 
     <li key={index}>
       <Link 
@@ -42,8 +42,7 @@ class Roster extends React.Component {
             rosterStats: this.findRosterStats(list.owner_id)
           }
         }}
-        onClick={() => {this.props.clickMe(list.owner_id)}}
-        
+        onClick={() => {this.props.clickMe(list.owner_id)}}  
       >
         <img src={require(`../images/${list.firstname}.png`)} alt={list.display_name} /><br />
         {list.display_name} 

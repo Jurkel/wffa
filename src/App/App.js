@@ -31,7 +31,6 @@ class App extends Component {
       return playerId.owner_id === id;
     })
     let param = roster.starters.toString().replace(/,/g, "-");
-    console.log('param: ' + param);
     fetch(`${API_STARTERS}` + param)
     .then(res => res.json())
     .then((starters) => {
