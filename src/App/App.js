@@ -23,7 +23,7 @@ class App extends Component {
   // changes state from separate component
   changeUser = (id) => {
     this.setState({ user: id }, () => {
-      this.updateStarters(id);
+      this.updateStarters(id)
     })
   }
 
