@@ -6,10 +6,10 @@ import Podcast from '../Podcast/Podcast'
 import Roster from '../Roster/Roster'
 import About from '../About/About'
 import Profile from '../Profile/Profile'
-import './App.css';
-import {API_ROSTER} from '../config';
-import {API_MANAGERS} from '../config';
-import {API_STARTERS} from '../config';
+import './App.css'
+import {API_ROSTER} from '../config'
+import {API_MANAGERS} from '../config'
+import {API_STARTERS} from '../config'
 
 class App extends Component {
     state = {
@@ -20,12 +20,14 @@ class App extends Component {
       starters: []
     }
 
+  // changes state from separate component
   changeUser = (id) => {
     this.setState({ user: id }, () => {
       this.updateStarters(id);
     })
   }
 
+  // formats the starting players list to array format
   updateStarters = (id) => {
     let roster = this.state.rosterData.find(playerId => {
       return playerId.owner_id === id;
@@ -41,6 +43,7 @@ class App extends Component {
     .catch(error => this.setState({ error }))
   }
 
+  // fetches main player/manager data
   componentDidMount() {
     fetch(`${API_ROSTER}`)
       .then(res => res.json())

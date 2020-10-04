@@ -10,12 +10,14 @@ class Roster extends React.Component {
     error: ''
   }
 
+  // returns individual manager data according to owner id
   findManagerId = (id) => {
     return this.props.managerData.find(roster => {
         return roster.owner_id === id;
     })
   }
   
+  // returns individual manager stats according to owner id
   findRosterStats = (id) => {
     return this.props.rosterData.find(roster => {
         return roster.owner_id === id;

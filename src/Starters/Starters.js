@@ -1,5 +1,5 @@
-import React from 'react';
-import './Starters.css';
+import React from 'react'
+import './Starters.css'
 
 class Starters extends React.Component {
   constructor(props) {

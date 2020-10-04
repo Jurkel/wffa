@@ -1,12 +1,12 @@
-import React from 'react';
-import zeke from '../images/Zeke.png';
-import bosa from '../images/Bosa.png';
-import thomas from '../images/mike-thomas.png';
-import radial from '../images/radial.png';
+import React from 'react'
+import zeke from '../images/Zeke.png'
+import bosa from '../images/Bosa.png'
+import thomas from '../images/mike-thomas.png'
+import radial from '../images/radial.png'
 import { Link } from 'react-router-dom'
-import './Home.css';
-import {API_ROSTER} from '../config';
-import {API_MANAGER} from '../config';
+import './Home.css'
+import {API_ROSTER} from '../config'
+import {API_MANAGER} from '../config'
 
 class Home extends React.Component {
     state = {
@@ -14,13 +14,10 @@ class Home extends React.Component {
       worst: '',
       most: '',
       least: '',
-      bestId: '',
-      worstId: '',
-      mostId: '',
-      leastId: '',
       scoreInfo: []
     }
 
+  // calculating which manager is in the lead/last place
   calculatePlacement = (info) => {
     let wins = [];
     let losses = [];
@@ -54,10 +51,7 @@ class Home extends React.Component {
         .then(res => res.json())
         .then(manager => {
           if(manager) {
-            this.setState({ 
-              best: manager[0].display_name,
-              bestId: manager[0].owner_id
-            })
+            this.setState({ best: manager[0].display_name })
           }
         })
         .catch(err => console.log(err))
@@ -66,10 +60,7 @@ class Home extends React.Component {
         .then(res => res.json())
         .then(manager => {
           if(manager) {
-            this.setState({ 
-              worst: manager[0].display_name,
-              worstId: manager[0].owner_id
-            })
+            this.setState({ worst: manager[0].display_name })
           }
         })
         .catch(err => console.log(err))
@@ -77,6 +68,7 @@ class Home extends React.Component {
     })
   }
 
+  // figuring out who has the most/least points in the league
   calculatePointsPlacement = (info) => {
     let totalManagers = info.length;
 
@@ -89,10 +81,7 @@ class Home extends React.Component {
     .then(res => res.json())
     .then(manager => {
       if(manager) {
-        this.setState({ 
-          least: manager[0].display_name,
-          leastId: manager[0].owner_id
-        })
+        this.setState({ least: manager[0].display_name })
       }
     })
     .catch(err => console.log(err))
@@ -102,15 +91,13 @@ class Home extends React.Component {
     .then(res => res.json())
     .then(manager => {
       if(manager) {
-        this.setState({ 
-          most: manager[0].display_name,
-          mostId: manager[0].owner_id 
-        })
+        this.setState({ most: manager[0].display_name })
       }
     })
     .catch(err => console.log(err))
   }
 
+  // fetches roster data for calculations
   componentDidMount() {
 
     fetch(`${API_ROSTER}`)
@@ -125,14 +112,7 @@ class Home extends React.Component {
       })
       .catch(error => this.setState({ error }))
   }
-
-  findRosterStats = (id) => {
-    return this.state.scoreInfo.find(roster => {
-        return roster.owner_id === id;
-    })
-  }
-
-
+  
   render() {
 
     return (
