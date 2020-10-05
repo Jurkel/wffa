@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
-import Nav from '../Nav/Nav'
-import Home from '../Home/Home'
-import Podcast from '../Podcast/Podcast'
-import Roster from '../Roster/Roster'
-import About from '../About/About'
-import Profile from '../Profile/Profile'
-import './App.css'
-import {API_ROSTER} from '../config'
-import {API_MANAGERS} from '../config'
-import {API_STARTERS} from '../config'
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Nav from '../Nav/Nav';
+import Home from '../Home/Home';
+import Podcast from '../Podcast/Podcast';
+import Roster from '../Roster/Roster';
+import About from '../About/About';
+import Profile from '../Profile/Profile';
+import './App.css';
+import {API_ROSTER} from '../config';
+import {API_MANAGERS} from '../config';
+import {API_STARTERS} from '../config';
 
 class App extends Component {
     state = {
@@ -23,7 +23,7 @@ class App extends Component {
   // changes state from separate component
   changeUser = (id) => {
     this.setState({ user: id }, () => {
-      this.updateStarters(id)
+      this.updateStarters(id);
     })
   }
 
@@ -37,7 +37,7 @@ class App extends Component {
     .then(res => res.json())
     .then((starters) => {
       if(starters) {
-        this.setState ({ starters }) 
+        this.setState ({ starters });
       }
     })
     .catch(error => this.setState({ error }))
@@ -50,12 +50,12 @@ class App extends Component {
       .then(data => {
         this.setState({ rosterData: data })
       })
-      .catch(error => this.setState({ error }))
+      .catch(error => this.setState({ error }));
 
     fetch(`${API_MANAGERS}`)
       .then(res => res.json())
       .then(data => {
-        this.setState({ managerData: data })
+        this.setState({ managerData: data });
       })
       .catch(error => this.setState({ error }))
   }

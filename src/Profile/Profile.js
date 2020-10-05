@@ -1,11 +1,11 @@
-import React from 'react'
-import Bio from '../Bio/Bio'
-import Stats from '../Stats/Stats'
-import Starters from '../Starters/Starters'
-import { withRouter } from 'react-router-dom'
-import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel'
-import 'pure-react-carousel/dist/react-carousel.es.css'
-import './Profile.css'
+import React from 'react';
+import Bio from '../Bio/Bio';
+import Stats from '../Stats/Stats';
+import Starters from '../Starters/Starters';
+import { withRouter } from 'react-router-dom';
+import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import './Profile.css';
 
 class Profile extends React.Component {
 

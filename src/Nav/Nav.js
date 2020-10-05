@@ -1,7 +1,7 @@
-import React from 'react'
-import { slide as Menu } from 'react-burger-menu'
-import logo from '../images/Logo.png'
-import './Nav.css'
+import React from 'react';
+import { slide as Menu } from 'react-burger-menu';
+import logo from '../images/Logo.png';
+import './Nav.css';
 
 class Nav extends React.Component {
   render() {

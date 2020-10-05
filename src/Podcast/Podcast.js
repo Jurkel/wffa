@@ -1,9 +1,9 @@
-import React from 'react'
-import podcast from '../images/podcast-art.png'
-import spotify from '../images/spotify.png'
-import apple from '../images/apple-podcast.png'
-import { Helmet } from 'react-helmet'
-import './Podcast.css'
+import React from 'react';
+import podcast from '../images/podcast-art.png';
+import spotify from '../images/spotify.png';
+import apple from '../images/apple-podcast.png';
+import { Helmet } from 'react-helmet';
+import './Podcast.css';
 
 class Podcast extends React.Component {
   render() {

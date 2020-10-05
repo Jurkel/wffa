@@ -1,12 +1,12 @@
-import React from 'react'
-import zeke from '../images/Zeke.png'
-import bosa from '../images/Bosa.png'
-import thomas from '../images/mike-thomas.png'
-import radial from '../images/radial.png'
-import { Link } from 'react-router-dom'
-import './Home.css'
-import {API_ROSTER} from '../config'
-import {API_MANAGER} from '../config'
+import React from 'react';
+import zeke from '../images/Zeke.png';
+import bosa from '../images/Bosa.png';
+import thomas from '../images/mike-thomas.png';
+import radial from '../images/radial.png';
+import { Link } from 'react-router-dom';
+import './Home.css';
+import {API_ROSTER} from '../config';
+import {API_MANAGER} from '../config';
 
 class Home extends React.Component {
     state = {
@@ -19,39 +19,39 @@ class Home extends React.Component {
 
   // calculating which manager is in the lead/last place
   calculatePlacement = (info) => {
-    let wins = []
-    let losses = []
-    let totalManagers = info.length
+    let wins = [];
+    let losses = [];
+    let totalManagers = info.length;
 
     //sort win/losses
     info.sort((a, b) => {
-      return a.settings.wins - b.settings.wins
+      return a.settings.wins - b.settings.wins;
     })
 
-    let winOverall = info[totalManagers - 1].settings.wins
-    let lossOverall = info[0].settings.losses
+    let winOverall = info[totalManagers - 1].settings.wins;
+    let lossOverall = info[0].settings.losses;
 
     info.forEach((i, index) => {
       if(i.settings.wins === winOverall) {
-        wins.push(i)
+        wins.push(i);
       } else if(i.settings.losses === lossOverall) {
-        losses.push(i)
+        losses.push(i);
       }
 
       if(index === totalManagers - 1) {
         wins.sort((a, b) => {
-          return b.settings.fpts - a.settings.fpts
+          return b.settings.fpts - a.settings.fpts;
         })
 
         losses.sort((a, b) => {
-          return a.settings.fpts - b.settings.fpts
+          return a.settings.fpts - b.settings.fpts;
         })
 
         fetch(`${API_MANAGER}` + wins[0].owner_id)
         .then(res => res.json())
         .then(manager => {
           if(manager) {
-            this.setState({ best: manager[0].display_name })
+            this.setState({ best: manager[0].display_name });
           }
         })
         .catch(err => console.log(err))
@@ -60,7 +60,7 @@ class Home extends React.Component {
         .then(res => res.json())
         .then(manager => {
           if(manager) {
-            this.setState({ worst: manager[0].display_name })
+            this.setState({ worst: manager[0].display_name });
           }
         })
         .catch(err => console.log(err))
@@ -70,18 +70,18 @@ class Home extends React.Component {
 
   // figuring out who has the most/least points in the league
   calculatePointsPlacement = (info) => {
-    let totalManagers = info.length
+    let totalManagers = info.length;
 
     //sort best/worst pts
     info.sort((a, b) => {
-      return a.settings.fpts - b.settings.fpts
+      return a.settings.fpts - b.settings.fpts;
     })
     
     fetch(`${API_MANAGER}` + info[0].owner_id)
     .then(res => res.json())
     .then(manager => {
       if(manager) {
-        this.setState({ least: manager[0].display_name })
+        this.setState({ least: manager[0].display_name });
       }
     })
     .catch(err => console.log(err))
@@ -91,7 +91,7 @@ class Home extends React.Component {
     .then(res => res.json())
     .then(manager => {
       if(manager) {
-        this.setState({ most: manager[0].display_name })
+        this.setState({ most: manager[0].display_name });
       }
     })
     .catch(err => console.log(err))
@@ -106,8 +106,8 @@ class Home extends React.Component {
         this.setState({
           scoreInfo: data
         }, () => {
-          this.calculatePointsPlacement(this.state.scoreInfo)
-          this.calculatePlacement(this.state.scoreInfo)
+          this.calculatePointsPlacement(this.state.scoreInfo);
+          this.calculatePlacement(this.state.scoreInfo);
         })
       })
       .catch(error => this.setState({ error }))
@@ -124,10 +124,10 @@ class Home extends React.Component {
           <img className='thomas' src={thomas} alt='mike thomas' />
 
           <div className='button-wrapper'>
-            <h3>See who's playing.</h3>
+            <h3>Find out stats about the league.</h3>
             <Link to='/roster'>
               <button className='roster-button' type='button'>
-                Roster
+                Click Here
               </button>
             </Link>
           </div>

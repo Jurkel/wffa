@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './Roster.css'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Roster.css';
 
 class Roster extends React.Component {
 
@@ -13,14 +13,14 @@ class Roster extends React.Component {
   // returns individual manager data according to owner id
   findManagerId = (id) => {
     return this.props.managerData.find(roster => {
-        return roster.owner_id === id
+        return roster.owner_id === id;
     })
   }
   
   // returns individual manager stats according to owner id
   findRosterStats = (id) => {
     return this.props.rosterData.find(roster => {
-        return roster.owner_id === id
+        return roster.owner_id === id;
     })
   }
 
