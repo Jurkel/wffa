@@ -31,9 +31,9 @@ class Podcast extends React.Component {
           </a>
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default Podcast;
 

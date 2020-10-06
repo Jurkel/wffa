@@ -4,4 +4,4 @@ module.exports = {
   API_STARTERS: 'https://intense-mesa-76351.herokuapp.com/player/ids/',
   API_MANAGERS: 'https://intense-mesa-76351.herokuapp.com/manager/',
   API_MANAGER: 'https://intense-mesa-76351.herokuapp.com/manager/id/'
-}
+};

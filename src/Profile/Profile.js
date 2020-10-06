@@ -38,8 +38,8 @@ class Profile extends React.Component {
           </CarouselProvider>
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default withRouter(Profile);

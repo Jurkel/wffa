@@ -38,7 +38,7 @@ function Bio(props) {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Bio;

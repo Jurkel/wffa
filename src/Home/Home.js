@@ -15,7 +15,7 @@ class Home extends React.Component {
       most: '',
       least: '',
       scoreInfo: []
-    }
+    };
 
   // calculating which manager is in the lead/last place
   calculatePlacement = (info) => {
@@ -26,7 +26,7 @@ class Home extends React.Component {
     //sort win/losses
     info.sort((a, b) => {
       return a.settings.wins - b.settings.wins;
-    })
+    });
 
     let winOverall = info[totalManagers - 1].settings.wins;
     let lossOverall = info[0].settings.losses;
@@ -36,16 +36,16 @@ class Home extends React.Component {
         wins.push(i);
       } else if(i.settings.losses === lossOverall) {
         losses.push(i);
-      }
+      };
 
       if(index === totalManagers - 1) {
         wins.sort((a, b) => {
           return b.settings.fpts - a.settings.fpts;
-        })
+        });
 
         losses.sort((a, b) => {
           return a.settings.fpts - b.settings.fpts;
-        })
+        });
 
         fetch(`${API_MANAGER}` + wins[0].owner_id)
         .then(res => res.json())
@@ -54,7 +54,7 @@ class Home extends React.Component {
             this.setState({ best: manager[0].display_name });
           }
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
 
         fetch(`${API_MANAGER}` + losses[0].owner_id)
         .then(res => res.json())
@@ -63,10 +63,10 @@ class Home extends React.Component {
             this.setState({ worst: manager[0].display_name });
           }
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
       }
-    })
-  }
+    });
+  };
 
   // figuring out who has the most/least points in the league
   calculatePointsPlacement = (info) => {
@@ -75,7 +75,7 @@ class Home extends React.Component {
     //sort best/worst pts
     info.sort((a, b) => {
       return a.settings.fpts - b.settings.fpts;
-    })
+    });
     
     fetch(`${API_MANAGER}` + info[0].owner_id)
     .then(res => res.json())
@@ -84,7 +84,7 @@ class Home extends React.Component {
         this.setState({ least: manager[0].display_name });
       }
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
     
 
     fetch(`${API_MANAGER}` + info[totalManagers - 1].owner_id)
@@ -94,8 +94,8 @@ class Home extends React.Component {
         this.setState({ most: manager[0].display_name });
       }
     })
-    .catch(err => console.log(err))
-  }
+    .catch(err => console.log(err));
+  };
 
   // fetches roster data for calculations
   componentDidMount() {
@@ -110,8 +110,8 @@ class Home extends React.Component {
           this.calculatePlacement(this.state.scoreInfo);
         })
       })
-      .catch(error => this.setState({ error }))
-  }
+      .catch(error => this.setState({ error }));
+  };
   
   render() {
 
@@ -157,8 +157,8 @@ class Home extends React.Component {
           </div>
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default Home

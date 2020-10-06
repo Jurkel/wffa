@@ -18,20 +18,20 @@ class App extends Component {
       managerData: [],
       currentUser: {},
       starters: []
-    }
+    };
 
   // changes state from separate component
   changeUser = (id) => {
     this.setState({ user: id }, () => {
       this.updateStarters(id);
     })
-  }
+  };
 
   // formats the starting players list to array format
   updateStarters = (id) => {
     let roster = this.state.rosterData.find(playerId => {
       return playerId.owner_id === id;
-    })
+    });
     let param = roster.starters.toString().replace(/,/g, "-");
     fetch(`${API_STARTERS}` + param)
     .then(res => res.json())
@@ -40,8 +40,8 @@ class App extends Component {
         this.setState ({ starters });
       }
     })
-    .catch(error => this.setState({ error }))
-  }
+    .catch(error => this.setState({ error }));
+  };
 
   // fetches main player/manager data
   componentDidMount() {
@@ -57,8 +57,8 @@ class App extends Component {
       .then(data => {
         this.setState({ managerData: data });
       })
-      .catch(error => this.setState({ error }))
-  }
+      .catch(error => this.setState({ error }));
+  };
   
 
   render() {
@@ -101,6 +101,6 @@ class App extends Component {
       </div>
     );
   }
-}
+};
 
 export default App;

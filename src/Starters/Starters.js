@@ -8,7 +8,7 @@ class Starters extends React.Component {
       starters: [],
       error: ''
     }
-  }
+  };
 
   render() {
 
@@ -16,7 +16,7 @@ class Starters extends React.Component {
       <div key={index} className='starter-flex'>
         <h4>{starter.player.position}:</h4><h3>  {starter.player.full_name} - <span className='starters-team'>{starter.player.team}</span></h3>
       </div>
-    )
+    );
 
   return (
     <div className='starters-wrapper'>
@@ -25,8 +25,8 @@ class Starters extends React.Component {
         {starters}
       </div>
     </div>
-  )
-  }
-}
+  );
+  };
+};
 
 export default Starters;

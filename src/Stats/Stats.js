@@ -33,7 +33,7 @@ function Stats(props) {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Stats;

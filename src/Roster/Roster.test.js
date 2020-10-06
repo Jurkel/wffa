@@ -10,14 +10,14 @@ describe('roster without crashing', () => {
   beforeEach(() => {
     container = document.createElement("div");
     document.body.appendChild(container);
-  })
+  });
 
   afterEach(() => {
     // cleanup on exiting
     ReactDOM.unmountComponentAtNode(container);
     container.remove();
     container = null;
-  })
+  });
 
   it('renders without crashing', () => {
     let laila = [
@@ -37,7 +37,7 @@ describe('roster without crashing', () => {
           "active": true,
           "dob": "04-25-1990"
       }
-  ]
+  ];
 
   let lailaRoster = [{
     "taxi": null,
@@ -96,4 +96,4 @@ describe('roster without crashing', () => {
       ReactDOM.render(<BrowserRouter><Roster rosterData={lailaRoster} managerData={laila}/></BrowserRouter>, container);
     })    
   });
-})
+});

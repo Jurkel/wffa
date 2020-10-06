@@ -8,21 +8,21 @@ class Roster extends React.Component {
     rosterInfo: [],
     starters: [], 
     error: ''
-  }
+  };
 
   // returns individual manager data according to owner id
   findManagerId = (id) => {
     return this.props.managerData.find(roster => {
         return roster.owner_id === id;
     })
-  }
+  };
   
   // returns individual manager stats according to owner id
   findRosterStats = (id) => {
     return this.props.rosterData.find(roster => {
         return roster.owner_id === id;
     })
-  }
+  };
 
   render() {
     
@@ -60,8 +60,8 @@ class Roster extends React.Component {
           <ul>{managers}</ul>
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default Roster;
